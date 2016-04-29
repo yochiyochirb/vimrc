@@ -1,12 +1,27 @@
+" General Settings
+" ------------------------------------------------
 syntax on
+filetype plugin indent on
 
+" Buffer Settings
 set hidden
+
+" Tab/Indent Settings
 set autoindent
-set number
-set clipboard^=unnamed,unnamedplus
+
+" Search Settings
 set hlsearch
 set incsearch
+
+" Editor Settings
+set number
 set backspace=indent,eol,start
+
+" Register Settings
+set clipboard^=unnamed,unnamedplus
+
+" Key Bindings
+" ------------------------------------------------
 
 " Edit/Reload .vimrc
 nnoremap <Space>fed :<C-u>edit $MYVIMRC<Enter>
@@ -17,5 +32,3 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
-
-filetype plugin indent on
