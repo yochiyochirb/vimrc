@@ -22,12 +22,4 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
-nnoremap <C-h> :bprevious<CR>
-nnoremap <C-l> :bnext<CR>
-
-nnoremap <Space>db :bdelete<Enter>
-
-" color of line number
-autocmd ColorScheme * highlight LineNr ctermfg=245
-
 filetype plugin indent on
