@@ -12,6 +12,8 @@ set autoindent
 " Search Settings
 set hlsearch
 set incsearch
+set ignorecase
+set smartcase
 
 " Editor Settings
 set number
