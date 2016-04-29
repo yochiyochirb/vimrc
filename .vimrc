@@ -7,7 +7,7 @@ filetype plugin indent on
 set hidden
 
 " Tab/Indent Settings
-set autoindent
+set smartindent
 
 " Search Settings
 set hlsearch
