@@ -12,9 +12,9 @@ set hlsearch
 set incsearch
 set backspace=indent,eol,start
 
-".vimrcの編集、リロード
-nnoremap <Space>.  :<C-u>edit $MYVIMRC<Enter>
-nnoremap <Space>s. :<C-u>source $MYVIMRC<Enter>
+" Edit/Reload .vimrc
+nnoremap <Space>fed :<C-u>edit $MYVIMRC<Enter>
+nnoremap <Space>feR :<C-u>source $MYVIMRC<Enter>
 
 noremap  j gj
 noremap  k gk
