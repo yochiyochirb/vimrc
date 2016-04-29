@@ -22,6 +22,33 @@ set backspace=indent,eol,start
 " Register Settings
 set clipboard^=unnamed,unnamedplus
 
+" Plugins
+" ------------------------------------------------
+
+" Requires plug.vim installed in the autoload directory.
+" See https://github.com/junegunn/vim-plug for details.
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'Shougo/neomru.vim', { 'on':  'Unite' }
+Plug 'shougo/unite.vim', { 'on': 'Unite' }
+
+call plug#end()
+
+" Plugin Specific Settings
+" ------------------------------------------------
+
+" Unite
+nnoremap [unite] <Nop>
+nmap     <Space>u [unite]
+
+nnoremap <silent> [unite]f :Unite<Space>file<Return>
+nnoremap <silent> [unite]n :Unite<Space>file/new<Return>
+nnoremap <silent> [unite]r :Unite<Space>file_mru<Return>
+nnoremap <silent> [unite]b :Unite<Space>buffer<Return>
+
+let g:unite_enable_start_insert = 1
+
 " Key Bindings
 " ------------------------------------------------
 
