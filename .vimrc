@@ -34,3 +34,9 @@ nnoremap j gj
 nnoremap k gk
 nnoremap gj j
 nnoremap gk k
+
+" Load Your Local .vimrc
+" ------------------------------------------------
+if filereadable(expand('~/.vimrc.local'))
+  source ~/.vimrc.local
+endif
