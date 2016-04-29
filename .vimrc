@@ -16,10 +16,11 @@ set backspace=indent,eol,start
 nnoremap <Space>fed :<C-u>edit $MYVIMRC<Enter>
 nnoremap <Space>feR :<C-u>source $MYVIMRC<Enter>
 
-noremap  j gj
-noremap  k gk
-noremap gj  j
-noremap gk  k
+" Swap up/down with up/down with display lines
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 
 nnoremap <C-h> :bprevious<CR>
 nnoremap <C-l> :bnext<CR>
