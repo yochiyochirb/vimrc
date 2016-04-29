@@ -31,8 +31,10 @@ set clipboard^=unnamed,unnamedplus
 call plug#begin('~/.vim/plugged')
 
 Plug 'Shougo/neomru.vim', { 'on':  'Unite' }
-Plug 'shougo/unite.vim', { 'on': 'Unite' }
+Plug 'Shougo/unite.vim', { 'on': 'Unite' }
 Plug 'basyura/unite-rails', { 'on': 'Unite' }
+Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
+Plug 'slim-template/vim-slim', { 'for': 'slim' }
 
 call plug#end()
 
