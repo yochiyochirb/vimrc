@@ -32,16 +32,16 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'Shougo/neomru.vim', { 'on':  'Unite' }
 Plug 'shougo/unite.vim', { 'on': 'Unite' }
+Plug 'basyura/unite-rails', { 'on': 'Unite' }
 
 call plug#end()
 
 " Plugin Specific Settings
 " ------------------------------------------------
 
-" Unite
+" Unite.vim
 nnoremap [unite] <Nop>
 nmap     <Space>u [unite]
-
 nnoremap <silent> [unite]f :Unite<Space>file<Return>
 nnoremap <silent> [unite]n :Unite<Space>file/new<Return>
 nnoremap <silent> [unite]r :Unite<Space>file_mru<Return>
@@ -49,12 +49,21 @@ nnoremap <silent> [unite]b :Unite<Space>buffer<Return>
 
 let g:unite_enable_start_insert = 1
 
+" unite-rails
+nnoremap [rails] <Nop>
+nmap     <Space>r [rails]
+nnoremap [rails]r :Unite<Space>rails/
+nnoremap <silent> [rails]m :Unite<Space>rails/model<Return>
+nnoremap <silent> [rails]c :Unite<Space>rails/controller<Return>
+nnoremap <silent> [rails]v :Unite<Space>rails/view<Return>
+nnoremap <silent> [rails]h :Unite<Space>rails/helper<Return>
+
 " Key Bindings
 " ------------------------------------------------
 
 " Edit/Reload .vimrc
-nnoremap <Space>fed :<C-u>edit $MYVIMRC<Enter>
-nnoremap <Space>feR :<C-u>source $MYVIMRC<Enter>
+nnoremap <Space>fed :<C-u>edit $MYVIMRC<Return>
+nnoremap <Space>feR :<C-u>source $MYVIMRC<Return>
 
 " Swap up/down with up/down with display lines
 nnoremap j gj
