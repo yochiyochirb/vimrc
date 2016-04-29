@@ -3,7 +3,7 @@ syntax on
 set hidden
 set autoindent
 set number
-set clipboard+=unnamed
+set clipboard^=unnamed,unnamedplus
 set hlsearch
 set incsearch
 set backspace=indent,eol,start
