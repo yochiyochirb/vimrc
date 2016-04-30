@@ -43,6 +43,7 @@ Plug 'Shougo/unite.vim'
 Plug 'basyura/unite-rails'
 Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
 
