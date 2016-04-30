@@ -1,2 +1,5 @@
-plugged/
-init.vim
+/*
+
+!/.gitignore
+!/autoload
+!/ftplugin
