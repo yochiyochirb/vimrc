@@ -49,26 +49,20 @@ call plug#end()
 
 " Unite.vim
 nnoremap [unite] <Nop>
-nmap     <Space>u [unite]
+nmap     <Leader>u [unite]
 nnoremap <silent> [unite]f :<C-u>Unite<Space>file<Return>
 nnoremap <silent> [unite]n :<C-u>Unite<Space>file/new<Return>
 nnoremap <silent> [unite]r :<C-u>Unite<Space>file_mru<Return>
 nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<Return>
-nnoremap <silent> [unite]fp :<C-u>call<Space><SID>unite_file_rec_in_project()<Return>
-nnoremap <silent> [unite]gp :<C-u>call<Space><SID>unite_grep_in_project()<Return>
+nnoremap <silent> [unite]fp :<C-u>call<Space><SID>unite_do_in_project('file_rec/async:')<Return>
+nnoremap <silent> [unite]gp :<C-u>call<Space><SID>unite_do_in_project('grep:')<Return>
 
 let g:unite_enable_start_insert = 1
 
 " unite file_rec from project's root directory
-function! s:unite_file_rec_in_project()
+function! s:unite_do_in_project(source)
   let l:project_root = unite#util#path2project_directory(expand('%'))
-  execute 'Unite file_rec/async:' . l:project_root
-endfunction
-
-" unite grep from project's root directory
-function! s:unite_grep_in_project()
-  let l:project_root = unite#util#path2project_directory(expand('%'))
-  execute 'Unite grep:' . l:project_root
+  execute 'Unite ' . a:source . l:project_root
 endfunction
 
 " Use 'ag' instead of 'grep' if available
@@ -91,7 +85,7 @@ let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
 " unite-rails
 nnoremap [rails] <Nop>
-nmap     <Space>r [rails]
+nmap     <Leader>r [rails]
 nnoremap [rails]r :Unite<Space>rails/
 nnoremap <silent> [rails]m :<C-u>Unite<Space>rails/model<Return>
 nnoremap <silent> [rails]c :<C-u>Unite<Space>rails/controller<Return>
@@ -102,8 +96,8 @@ nnoremap <silent> [rails]h :<C-u>Unite<Space>rails/helper<Return>
 " ------------------------------------------------
 
 " Edit/Reload .vimrc
-nnoremap <Space>fed :<C-u>edit $MYVIMRC<Return>
-nnoremap <Space>feR :<C-u>source $MYVIMRC<Return>
+nnoremap <Leader>fed :<C-u>edit $MYVIMRC<Return>
+nnoremap <Leader>feR :<C-u>source $MYVIMRC<Return>
 
 " Swap up/down with up/down with display lines
 nnoremap j gj
