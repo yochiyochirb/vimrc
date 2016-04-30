@@ -64,6 +64,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/syntastic'
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
+Plug 'godlygeek/tabular', { 'for': 'markdown' } | Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
@@ -121,6 +122,10 @@ nmap ga <Plug>(EasyAlign)
 " vimagit
 let g:magit_default_show_all_files = 2
 let g:magit_default_fold_level = 2
+
+" vim-markdown
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_frontmatter = 1
 
 " Load Your Local .vimrc
 " ------------------------------------------------
