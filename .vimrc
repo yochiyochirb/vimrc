@@ -29,9 +29,20 @@ set clipboard^=unnamed,unnamedplus
 " Leader
 let mapleader = "\<Space>"
 
+" General Key Bindings
+" ------------------------------------------------
+" Edit/Reload .vimrc
+nnoremap <Leader>fed :<C-u>edit $MYVIMRC<Return>
+nnoremap <Leader>feR :<C-u>source $MYVIMRC<Return>
+
+" Swap up/down with up/down with display lines
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
 " Plugins
 " ------------------------------------------------
-
 " Requires plug.vim installed in the autoload directory.
 " See https://github.com/junegunn/vim-plug for details.
 
@@ -52,7 +63,6 @@ call plug#end()
 
 " Plugin Specific Settings
 " ------------------------------------------------
-
 " Unite.vim
 nnoremap [unite] <Nop>
 nmap     <Leader>u [unite]
@@ -65,7 +75,7 @@ nnoremap <silent> [unite]gp :<C-u>call<Space><SID>unite_do_in_project('grep:')<R
 
 let g:unite_enable_start_insert = 1
 
-" unite file_rec from project's root directory
+" unite do from project's root directory
 function! s:unite_do_in_project(source)
   let l:project_root = unite#util#path2project_directory(expand('%'))
   execute 'Unite ' . a:source . l:project_root
@@ -97,19 +107,6 @@ nnoremap <silent> [rails]h :<C-u>Unite<Space>rails/helper<Return>
 " vim-easy-align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
-
-" Key Bindings
-" ------------------------------------------------
-
-" Edit/Reload .vimrc
-nnoremap <Leader>fed :<C-u>edit $MYVIMRC<Return>
-nnoremap <Leader>feR :<C-u>source $MYVIMRC<Return>
-
-" Swap up/down with up/down with display lines
-nnoremap j gj
-nnoremap k gk
-nnoremap gj j
-nnoremap gk k
 
 " Load Your Local .vimrc
 " ------------------------------------------------
