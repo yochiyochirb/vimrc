@@ -22,6 +22,9 @@ set backspace=indent,eol,start
 " Register Settings
 set clipboard^=unnamed,unnamedplus
 
+" Leader
+let mapleader = "\<Space>"
+
 " Plugins
 " ------------------------------------------------
 
