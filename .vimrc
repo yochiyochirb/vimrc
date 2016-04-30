@@ -66,6 +66,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
 Plug 'godlygeek/tabular', { 'for': 'markdown' } | Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'tyru/caw.vim'
+Plug 'osyo-manga/vim-over'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
@@ -127,6 +128,9 @@ let g:magit_default_fold_level = 2
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
+
+" vim-over
+nnoremap <silent> <Leader>s :<C-u>OverCommandLine<Return>
 
 " Load Your Local .vimrc
 " ------------------------------------------------
