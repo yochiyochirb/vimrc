@@ -58,6 +58,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/syntastic'
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
