@@ -53,8 +53,9 @@ Plug 'Shougo/neomru.vim'
 Plug 'Shougo/unite.vim'
 Plug 'basyura/unite-rails'
 Plug 'easymotion/vim-easymotion'
-Plug 'scrooloose/syntastic'
 Plug 'junegunn/vim-easy-align'
+Plug 'scrooloose/syntastic'
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
