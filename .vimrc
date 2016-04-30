@@ -29,6 +29,15 @@ set clipboard^=unnamed,unnamedplus
 " Leader
 let mapleader = "\<Space>"
 
+" Swap file location
+if !isdirectory(expand('~/.vim/tmp'))
+  call mkdir(expand('~/.vim/tmp'), 'p')
+endif
+
+set directory=~/.vim/tmp
+set backupdir=~/.vim/tmp
+set undodir=~/.vim/tmp
+
 " General Key Bindings
 " ------------------------------------------------
 " Edit/Reload .vimrc
