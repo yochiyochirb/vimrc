@@ -49,9 +49,23 @@ nnoremap <silent> [unite]f :<C-u>Unite<Space>file<Return>
 nnoremap <silent> [unite]n :<C-u>Unite<Space>file/new<Return>
 nnoremap <silent> [unite]r :<C-u>Unite<Space>file_mru<Return>
 nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<Return>
-nnoremap <silent> [unite]p :<C-u>Unite<Space>file_rec/async:!<Return>
+nnoremap <silent> [unite]fp :<C-u>Unite<Space>file_rec/async:!<Return>
+nnoremap <silent> [unite]gp :<C-u>call<Space><SID>unite_grep_in_project()<Return>
 
 let g:unite_enable_start_insert = 1
+
+" unite grep from project's root directory
+function! s:unite_grep_in_project()
+  let dir = unite#util#path2project_directory(expand('%'))
+  execute 'Unite grep:' . dir
+endfunction
+
+" Use 'ag' instead of 'grep' if available
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
 
 " unite-rails
 nnoremap [rails] <Nop>
