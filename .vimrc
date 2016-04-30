@@ -43,6 +43,7 @@ Plug 'Shougo/unite.vim'
 Plug 'basyura/unite-rails'
 Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/syntastic'
+Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
@@ -96,6 +97,10 @@ nnoremap <silent> [rails]m :<C-u>Unite<Space>rails/model<Return>
 nnoremap <silent> [rails]c :<C-u>Unite<Space>rails/controller<Return>
 nnoremap <silent> [rails]v :<C-u>Unite<Space>rails/view<Return>
 nnoremap <silent> [rails]h :<C-u>Unite<Space>rails/helper<Return>
+
+" vim-easy-align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " Key Bindings
 " ------------------------------------------------
