@@ -56,6 +56,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/syntastic'
 Plug 'airblade/vim-gitgutter'
+Plug 'jreybert/vimagit'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
@@ -108,6 +109,10 @@ nnoremap <silent> [rails]h :<C-u>Unite<Space>rails/helper<Return>
 " vim-easy-align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
+
+" vimagit
+let g:magit_default_show_all_files = 2
+let g:magit_default_fold_level = 2
 
 " Load Your Local .vimrc
 " ------------------------------------------------
