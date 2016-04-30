@@ -54,15 +54,21 @@ nnoremap <silent> [unite]f :<C-u>Unite<Space>file<Return>
 nnoremap <silent> [unite]n :<C-u>Unite<Space>file/new<Return>
 nnoremap <silent> [unite]r :<C-u>Unite<Space>file_mru<Return>
 nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<Return>
-nnoremap <silent> [unite]fp :<C-u>Unite<Space>file_rec/async:!<Return>
+nnoremap <silent> [unite]fp :<C-u>call<Space><SID>unite_file_rec_in_project()<Return>
 nnoremap <silent> [unite]gp :<C-u>call<Space><SID>unite_grep_in_project()<Return>
 
 let g:unite_enable_start_insert = 1
 
+" unite file_rec from project's root directory
+function! s:unite_file_rec_in_project()
+  let l:project_root = unite#util#path2project_directory(expand('%'))
+  execute 'Unite file_rec/async:' . l:project_root
+endfunction
+
 " unite grep from project's root directory
 function! s:unite_grep_in_project()
-  let dir = unite#util#path2project_directory(expand('%'))
-  execute 'Unite grep:' . dir
+  let l:project_root = unite#util#path2project_directory(expand('%'))
+  execute 'Unite grep:' . l:project_root
 endfunction
 
 " Use 'ag' instead of 'grep' if available
