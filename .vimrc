@@ -19,6 +19,10 @@ set smartcase
 set number
 set backspace=indent,eol,start
 
+" Display Settings
+set title
+set laststatus=2
+
 " Register Settings
 set clipboard^=unnamed,unnamedplus
 
