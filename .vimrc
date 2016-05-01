@@ -92,6 +92,7 @@ Plug 'tyru/caw.vim'
 Plug 'osyo-manga/vim-over'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'tpope/vim-cucumber', { 'for': 'cucumber' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
