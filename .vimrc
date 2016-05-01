@@ -167,8 +167,6 @@ nmap N <Plug>(anzu-N)
 nmap * <Plug>(anzu-star)
 nmap # <Plug>(anzu-sharp)
 nmap <silent> <Esc><Esc> :<C-u>nohlsearch<Return><Plug>(anzu-clear-search-status)
-" Display anzu status in vim-airline
-let g:airline_section_c = '%F %{anzu#search_status()}'
 
 " vim-over
 nnoremap <silent> <Leader>s :<C-u>OverCommandLine<Return>
