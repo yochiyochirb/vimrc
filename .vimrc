@@ -89,6 +89,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
 Plug 'godlygeek/tabular', { 'for': 'markdown' } | Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'tyru/caw.vim'
+Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-over'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -159,6 +160,15 @@ let g:magit_default_fold_level = 2
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
+
+" vim-anzu
+nmap n <Plug>(anzu-n)
+nmap N <Plug>(anzu-N)
+nmap * <Plug>(anzu-star)
+nmap # <Plug>(anzu-sharp)
+nmap <silent> <Esc><Esc> :<C-u>nohlsearch<Return><Plug>(anzu-clear-search-status)
+" Display anzu status in vim-airline
+let g:airline_section_c = '%F %{anzu#search_status()}'
 
 " vim-over
 nnoremap <silent> <Leader>s :<C-u>OverCommandLine<Return>
