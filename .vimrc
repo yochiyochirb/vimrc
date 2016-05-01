@@ -1,5 +1,7 @@
 " General Settings
 " ------------------------------------------------
+" {{{1
+
 syntax on
 filetype plugin indent on
 
@@ -38,8 +40,12 @@ set directory=~/.vim/tmp
 set backupdir=~/.vim/tmp
 set undodir=~/.vim/tmp
 
+" }}}
+
 " General Key Bindings
 " ------------------------------------------------
+" {{{1
+
 " Edit/Reload .vimrc
 nnoremap <Leader>fed :<C-u>edit $MYVIMRC<Return>
 nnoremap <Leader>feR :<C-u>source $MYVIMRC<Return>
@@ -56,8 +62,12 @@ nnoremap <Right> :echoe<Space>"Use l"<Return>
 nnoremap <Up> :echoe<Space>"Use k"<Return>
 nnoremap <Down> :echoe<Space>"Use j"<Return>
 
+" }}}
+
 " Plugins
 " ------------------------------------------------
+" {{{1
+
 " Requires plug.vim installed in the autoload directory.
 " See https://github.com/junegunn/vim-plug for details.
 
@@ -83,8 +93,12 @@ Plug 'slim-template/vim-slim', { 'for': 'slim' }
 
 call plug#end()
 
+" }}}
+
 " Plugin Specific Settings
 " ------------------------------------------------
+" {{{1
+
 " Unite.vim
 nnoremap [unite] <Nop>
 nmap     <Leader>u [unite]
@@ -113,7 +127,6 @@ endif
 " Syntastic
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
 let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
@@ -141,8 +154,16 @@ let g:vim_markdown_frontmatter = 1
 " vim-over
 nnoremap <silent> <Leader>s :<C-u>OverCommandLine<Return>
 
+" }}}
+
 " Load Your Local .vimrc
 " ------------------------------------------------
+" {{{1
+
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
 endif
+
+" }}}
+
+" vim:set foldmethod=marker:
