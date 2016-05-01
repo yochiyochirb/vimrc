@@ -143,6 +143,9 @@ nnoremap <silent> [rails]c :<C-u>Unite<Space>rails/controller<Return>
 nnoremap <silent> [rails]v :<C-u>Unite<Space>rails/view<Return>
 nnoremap <silent> [rails]h :<C-u>Unite<Space>rails/helper<Return>
 
+" vim-easymotion
+let g:EasyMotion_smartcase = 1
+
 " vim-easy-align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
