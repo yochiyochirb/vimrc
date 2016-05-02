@@ -66,7 +66,7 @@ Setup plugins.
 
 ### Folding
 
-If you find a trouble with reading `vimrc` by every section is folded. Just type `zR`, then all foldings are open.
+If you find some troubles with reading `vimrc` by every section is folded. Just type `zR`, then all foldings are open, or hit `Space` to open each folding.
 
 ### Leader
 
@@ -74,24 +74,49 @@ By default, Leader key is mapped to `Space`.
 
 ### Unite
 
-The 4 things least you have to know about Unite are:
+A few things at least you have to know about Unite are:
 
-- `<Space>ur` : to "unite" recently opened files
-- `<Space>ub` : to "unite" buffers
-- `<Space>ufp` : to "unite" find files in the project (e.g. for files in git repository)
-- `<Space>ufp` : to "unite" grep files in the project (e.g. from files ingit repository)
+- `<Leader>ur` : to "unite" recently opened files
+- `<Leader>ub` : to "unite" buffers
+- `<Leader>ufp` : to "unite" find files in the project (e.g. for files in git repository)
+- `<Leader>ufp` : to "unite" grep files in the project (e.g. from files ingit repository)
+
+### unite-rails
+
+A few things at least you have to know about unite-rails are:
+
+- `<Leader>rm` : to "unite" models
+- `<Leader>rc` : to "unite" controllers
+- `<Leader>rv` : to "unite" views
+- `<Leader>rh` : to "unite" helpers
 
 ### easymotion
 
 Easymotion brings you to the location you want really fast. 
 
-The 1 thing least you have to know about easymotion is:
+The one thing at least you have to know about easymotion is:
 
-- `<Space><Space>s` : then type any character for the word you want to move to
+- `<Leader><Leader>s` : then type any character for the word you want to move to
+
+### NERDTree
+
+A few things at least you have to know about NERDTree are:
+
+- `<Leader>nt` : to toggle NERDTree
+- `I` : to toggle displaying hidden files
+- `Return` : to open file/directory
+
+### vimagit
+
+A few things at least you have to know about vimagit are:
+
+- `<Leader>M` : to open vimagit
+- `N` : to go to next hunk
+- `S` : to add file/hunk to stage
+- `CC` : to commit staged file/hunk, `CC` again for committing after writing commit message
 
 ### vim-over
 
-The 1 thing you have to know about vim-over is:
+A few things at least you have to know about vim-over are:
 
-- `<Space>s` : then input a substitute command like `%s/foo/bar/g`, whoa!
-
+- `<Leader>s` : then input a substitute command like `%s/foo/bar/g`, whoa!
