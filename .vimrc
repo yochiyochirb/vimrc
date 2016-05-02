@@ -174,6 +174,7 @@ nmap <silent> <Esc><Esc> :<C-u>nohlsearch<Return><Plug>(anzu-clear-search-status
 
 " vim-over
 nnoremap <silent> <Leader>s :<C-u>OverCommandLine<Return>
+xnoremap <silent> <Leader>s :<C-u>'<,'>OverCommandLine<Return>
 
 " }}}
 
