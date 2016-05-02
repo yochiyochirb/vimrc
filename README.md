@@ -98,6 +98,59 @@ The one thing at least you have to know about easymotion is:
 
 - `<Leader><Leader>s` : then type any character for the word you want to move to
 
+### vim-easy-align
+
+vim-easy-align is a simple, easy-to-use Vim alignment plugin.
+
+A few things at least you have to know about NERDTree are:
+
+1. Select lines to align in visual mode
+2. `ga` : to start easy-align
+3. enter delimiter for aligning
+
+e.g.
+
+```
+lorem=ipsum
+dolor = sit
+amet = consectetur
+```
+
+Select lines then `ga` then `=`
+
+```
+lorem = ipsum
+dolor = sit
+amet  = consectetur
+```
+
+This is also very useful for markdown tables:
+
+1. Select table to align in visual mode
+2. `ga` : to start easy-align
+3. enter `*` to target all columns
+3. enter delimiter for aligning
+
+e.g.
+
+```
+key|value|note
+--|--|--
+key1|value1|note1
+key22|value22|note22
+key333|value333|note333
+```
+
+Select lines then `ga` then `*|`
+
+```
+key    | value    | note
+--     | --       | --
+key1   | value1   | note1
+key22  | value22  | note22
+key333 | value333 | note333
+```
+
 ### NERDTree
 
 A few things at least you have to know about NERDTree are:
@@ -108,12 +161,22 @@ A few things at least you have to know about NERDTree are:
 
 ### vimagit
 
+vimagit is a new way to use git within vim.
+
 A few things at least you have to know about vimagit are:
 
 - `<Leader>M` : to open vimagit
 - `N` : to go to next hunk
 - `S` : to add file/hunk to stage
 - `CC` : to commit staged file/hunk, `CC` again for committing after writing commit message
+
+### caw
+
+caw is a comment plugin.
+
+The one thing at least you have to know about caw is:
+
+- `gcc` : to comment/uncomment
 
 ### vim-over
 
