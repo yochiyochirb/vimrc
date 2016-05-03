@@ -79,7 +79,7 @@ A few things at least you have to know about Unite are:
 - `<Leader>ur` : to "unite" recently opened files
 - `<Leader>ub` : to "unite" buffers
 - `<Leader>ufp` : to "unite" find files in the project (e.g. for files in git repository)
-- `<Leader>ugp` : to "unite" grep files in the project (e.g. from files ingit repository)
+- `<Leader>ugp` : to "unite" grep files in the project (e.g. from files in git repository)
 
 ### unite-rails
 
