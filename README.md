@@ -102,7 +102,7 @@ The one thing at least you have to know about easymotion is:
 
 vim-easy-align is a simple, easy-to-use Vim alignment plugin.
 
-A few things at least you have to know about NERDTree are:
+A few things at least you have to know about vim-easy-align are:
 
 1. Select lines to align in visual mode
 2. `ga` : to start easy-align
