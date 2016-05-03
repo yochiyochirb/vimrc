@@ -74,6 +74,8 @@ By default, Leader key is mapped to `Space`.
 
 ### Unite
 
+The unite is a plugin which can search and display information from arbitrary sources like files, buffers or recently used files.
+
 A few things at least you have to know about Unite are:
 
 - `<Leader>ur` : to "unite" recently opened files
@@ -81,7 +83,11 @@ A few things at least you have to know about Unite are:
 - `<Leader>ufp` : to "unite" find files in the project (e.g. for files in git repository)
 - `<Leader>ugp` : to "unite" grep files in the project (e.g. from files in git repository)
 
+For more information, visit https://github.com/Shougo/unite.vim or `:help unite`.
+
 ### unite-rails
+
+unite-rails is a unite plugin for rails.
 
 A few things at least you have to know about unite-rails are:
 
@@ -90,6 +96,8 @@ A few things at least you have to know about unite-rails are:
 - `<Leader>rv` : to "unite" views
 - `<Leader>rh` : to "unite" helpers
 
+For more information, visit https://github.com/basyura/unite-rails or `:help unite-rails`.
+
 ### easymotion
 
 Easymotion brings you to the location you want really fast. 
@@ -97,6 +105,8 @@ Easymotion brings you to the location you want really fast.
 The one thing at least you have to know about easymotion is:
 
 - `<Leader><Leader>s` : then type any character for the word you want to move to
+
+For more information, visit https://github.com/easymotion/vim-easymotion or `:help easymotion`.
 
 ### vim-easy-align
 
@@ -151,6 +161,8 @@ key22  | value22  | note22
 key333 | value333 | note333
 ```
 
+For more information, visit https://github.com/junegunn/vim-easy-align or `:help easyalign`.
+
 ### NERDTree
 
 A few things at least you have to know about NERDTree are:
@@ -158,6 +170,9 @@ A few things at least you have to know about NERDTree are:
 - `<Leader>nt` : to toggle NERDTree
 - `I` : to toggle displaying hidden files
 - `Return` : to open file/directory
+- Displays Git status with [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin)
+
+For more information, visit https://github.com/scrooloose/nerdtree or `:help NERDTree`.
 
 ### vimagit
 
@@ -170,6 +185,8 @@ A few things at least you have to know about vimagit are:
 - `S` : to add file/hunk to stage
 - `CC` : to commit staged file/hunk, `CC` again for committing after writing commit message
 
+For more information, visit https://github.com/jreybert/vimagit or `:help vimagit`.
+
 ### caw
 
 caw is a comment plugin.
@@ -178,8 +195,27 @@ The one thing at least you have to know about caw is:
 
 - `gcc` : to comment/uncomment
 
+For more information, visit https://github.com/tyru/caw.vim or `:help caw`.
+
+### vim-anzu
+
+vim-anzu is a search plugin that displays current match/total matches.
+
+A few things at least you have to know about vim-anzu are:
+
+1. `/` / `?` to start search then hit `n` / `N`
+2. current match/total matches are displayed in vim-airline
+
+- `*` and `#` are also worked as anzu search
+
+For more information, visit https://github.com/osyo-manga/vim-anzu or `:help anzu`.
+
 ### vim-over
 
 A few things at least you have to know about vim-over are:
 
 - `<Leader>s` : then input a substitute command like `%s/foo/bar/g`, whoa!
+- vim-over requires Vim 7.3 or above and compiles with `+conceal`  
+  - Since Vim which comes with OS X does not have `+conceal`, you might have to install Vim via Homebrew
+
+For more information, visit https://github.com/osyo-manga/vim-over or `:help over`.
