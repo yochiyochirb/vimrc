@@ -187,6 +187,16 @@ A few things at least you have to know about vimagit are:
 
 For more information, visit https://github.com/jreybert/vimagit or `:help vimagit`.
 
+### previm
+
+previm is a plugin for Realtime preview (Markdown only for the moment).
+
+The one thing at least you have to know about previm is:
+
+- `<Leader>mp` : to preview markdown in a web browser
+
+For more information, visit https://github.com/kannokanno/previm or `:help previm`.
+
 ### caw
 
 caw is a comment plugin.

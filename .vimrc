@@ -89,6 +89,8 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
 Plug 'godlygeek/tabular', { 'for': 'markdown' } | Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'kannokanno/previm', { 'for': 'markdown' }
+Plug 'tyru/open-browser.vim', { 'for': 'markdown' }
 Plug 'tyru/caw.vim'
 Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-over'
@@ -165,6 +167,9 @@ let g:magit_default_fold_level = 2
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter = 1
+
+" previm
+nnoremap <silent> <Leader>mp :<C-u>PrevimOpen<Return>
 
 " vim-anzu
 nmap n <Plug>(anzu-n)
