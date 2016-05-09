@@ -19,7 +19,7 @@ $ mv .vim .vim.bak
 Clone this repository.
 
 ```
-$ git clone https://github.com/5t111111/vimrc
+$ git clone https://github.com/yochiyochirb/vimrc
 ```
 
 Create a symbolic link to `.vim`.
