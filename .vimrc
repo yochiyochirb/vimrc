@@ -103,6 +103,11 @@ Plug 'tpope/vim-rails'
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 
+" Colorschemes
+Plug 'tomasr/molokai'
+Plug 'sjl/badwolf'
+Plug 'altercation/vim-colors-solarized'
+
 call plug#end()
 
 " }}}
