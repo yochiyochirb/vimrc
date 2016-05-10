@@ -81,6 +81,7 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/unite.vim'
 Plug 'basyura/unite-rails'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
@@ -152,6 +153,11 @@ nnoremap <silent> [rails]m :<C-u>Unite<Space>rails/model<Return>
 nnoremap <silent> [rails]c :<C-u>Unite<Space>rails/controller<Return>
 nnoremap <silent> [rails]v :<C-u>Unite<Space>rails/view<Return>
 nnoremap <silent> [rails]h :<C-u>Unite<Space>rails/helper<Return>
+
+" ctrlp
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_match_window = 'bottom,order:btt,min:3,max:15,results:15'
+let g:ctrlp_open_new_file = 'r'
 
 " vim-easymotion
 let g:EasyMotion_smartcase = 1
