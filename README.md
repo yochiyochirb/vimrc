@@ -72,6 +72,22 @@ If you find some troubles with reading `vimrc` by every section is folded. Just 
 
 By default, Leader key is mapped to `Space`.
 
+### Colorschemes
+
+The following additional coloschemes are available:
+
+- [molokai](https://github.com/tomasr/molokai)
+- [badwolf](https://github.com/sjl/badwolf)
+- [solarized](https://github.com/altercation/vim-colors-solarized)
+
+Add the theme you prefer in `~/.vimrc.local`, like:
+
+```vim
+colorscheme molokai
+```
+
+See the website for each colorscheme for details.
+
 ### Unite
 
 The unite is a plugin which can search and display information from arbitrary sources like files, buffers or recently used files.
