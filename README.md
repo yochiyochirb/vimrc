@@ -225,7 +225,15 @@ For more information, visit https://github.com/osyo-manga/vim-anzu or `:help anz
 A few things at least you have to know about vim-over are:
 
 - `<Leader>s` : then input a substitute command like `%s/foo/bar/g`, whoa!
-- vim-over requires Vim 7.3 or above and compiles with `+conceal`  
+- vim-over requires Vim 7.3 or above and compiles with `+conceal`
   - Since Vim which comes with OS X does not have `+conceal`, you might have to install Vim via Homebrew
 
 For more information, visit https://github.com/osyo-manga/vim-over or `:help over`.
+
+### ctrlp
+
+ctrlp is a full path fuzzy file etc finder for vim.
+
+- `Ctrl + p` : open ctrlp, then show magaged files via git
+
+For more information, visit https://github.com/ctrlpvim/ctrlp.vim or `:help ctrlp`.
