@@ -253,3 +253,11 @@ ctrlp is a full path fuzzy file etc finder for vim.
 - `Ctrl + p` : open ctrlp, then show magaged files via git
 
 For more information, visit https://github.com/ctrlpvim/ctrlp.vim or `:help ctrlp`.
+
+### vim-blockle
+
+vim-blockle is block syntax toggle plugin.
+
+- `<Leader>b` : Convert `{ ... }` into `do ... end` and vice versa.
+
+For more information, visit https://github.com/jgdavey/vim-blockle or `:help blockle`.
