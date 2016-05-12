@@ -69,6 +69,9 @@ nnoremap <Right> :echoe<Space>"Use l"<Return>
 nnoremap <Up> :echoe<Space>"Use k"<Return>
 nnoremap <Down> :echoe<Space>"Use j"<Return>
 
+" Deleting a buffer without closing the window
+nnoremap <silent> <leader>bd :bprevious\|:bdelete<Space>#<Return>
+
 " }}}
 
 " Plugins
