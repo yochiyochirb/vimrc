@@ -40,6 +40,9 @@ set directory=~/.vim/tmp
 set backupdir=~/.vim/tmp
 set undodir=~/.vim/tmp
 
+" Enable matchit
+runtime macros/matchit.vim
+
 " }}}
 
 " General Key Bindings
