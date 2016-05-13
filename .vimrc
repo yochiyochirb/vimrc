@@ -87,6 +87,7 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/unite.vim'
 Plug 'basyura/unite-rails'
+Plug 'Shougo/unite-outline'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'easymotion/vim-easymotion'
@@ -165,6 +166,9 @@ nnoremap <silent> [rails]m :<C-u>Unite<Space>rails/model<Return>
 nnoremap <silent> [rails]c :<C-u>Unite<Space>rails/controller<Return>
 nnoremap <silent> [rails]v :<C-u>Unite<Space>rails/view<Return>
 nnoremap <silent> [rails]h :<C-u>Unite<Space>rails/helper<Return>
+
+" unite-outline
+nnoremap <silent> [unite]o :<C-u>Unite<Space>-vertical<Space>-no-quit<Space>-direction=botright<Space>-winwidth=35<Space>outline<Return>
 
 " ctrlp
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
