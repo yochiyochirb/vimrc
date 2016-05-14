@@ -36,7 +36,11 @@ set title
 set laststatus=2
 
 " Register Settings
-set clipboard^=unnamed,unnamedplus
+if has('nvim')
+  set clipboard+=unnamedplus
+else
+  set clipboard^=unnamed,unnamedplus
+endif
 
 " Leader
 let mapleader = "\<Space>"
