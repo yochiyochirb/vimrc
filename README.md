@@ -114,6 +114,14 @@ A few things at least you have to know about unite-rails are:
 
 For more information, visit https://github.com/basyura/unite-rails or `:help unite-rails`.
 
+### unite-outline
+
+unite-outline is a unite plugin for current buffer outline view.
+
+- `<Leader>uo` : to "unite" outline into right window which is not close.
+
+For more information, visit https://github.com/Shougo/unite-outline or `:help unite-outline`.
+
 ### easymotion
 
 Easymotion brings you to the location you want really fast. 
