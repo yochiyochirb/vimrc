@@ -102,6 +102,7 @@ Plug 'tyru/open-browser.vim', { 'for': 'markdown' }
 Plug 'tyru/caw.vim'
 Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-over'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise', { 'for': 'ruby' }

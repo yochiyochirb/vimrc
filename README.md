@@ -254,6 +254,15 @@ A few things at least you have to know about vim-over are:
 
 For more information, visit https://github.com/osyo-manga/vim-over or `:help over`.
 
+### vim-better-whitespace
+
+vim-better-whitespace is a plugin which causes all trailing whitespace characters (spaces and tabs) to be highlighted.
+
+A few things at least you have to know about vim-better-whitespace are:
+
+- `:ToggleWhitespace` : to toggle whitespace highlighting on/off (on by default)
+- `:StripWhitespace` : to clean all extra whitespaces
+
 ### ctrlp
 
 ctrlp is a full path fuzzy file etc finder for vim.
