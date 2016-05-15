@@ -37,12 +37,23 @@ ln -s $SCRIPT_PATH/.vimrc $HOME/.vimrc
 echo "A symbolic link [$HOME/.vimrc] is created."
 
 if hash nvim 2>/dev/null; then
-  backup_existing_file $HOME/.vim/init.vim
-  backup_existing_file $HOME/.config/.vim
-  ln -s $SCRIPT_PATH/.vimrc $HOME/.vim/init.vim
-  echo "A symbolic link [$HOME/.vim/init.vim] is created."
-  ln -s $SCRIPT_PATH/.vim $HOME/.config/.vim
-  echo "A symbolic link [$HOME/.config/.vim] is created."
+  XDG_CONFIG_HOME=${XDG_CONFIG_HOME:=$HOME/.config}
+
+  if [ ! -d "$XDG_CONFIG_HOME" ] ; then
+    mkdir -p $XDG_CONFIG_HOME
+    echo "[$XDG_CONFIG_HOME] is created."
+  fi
+
+  backup_existing_file $XDG_CONFIG_HOME/nvim/init.vim
+  backup_existing_file $XDG_CONFIG_HOME/nvim
+
+  ln -s $SCRIPT_PATH/.vim $XDG_CONFIG_HOME/nvim
+  echo "A symbolic link [$XDG_CONFIG_HOME/nvim] is created."
+
+  backup_existing_file $XDG_CONFIG_HOME/nvim/init.vim
+
+  ln -s $SCRIPT_PATH/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+  echo "A symbolic link [$XDG_CONFIG_HOME/nvim/init.vim] is created."
 fi
 
 popd > /dev/null
