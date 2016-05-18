@@ -139,6 +139,16 @@ Plug 'tomasr/molokai'
 Plug 'sjl/badwolf'
 Plug 'altercation/vim-colors-solarized'
 
+" Vim/Neovim specific plugins
+if has('nvim')
+  function! DoRemote(arg)
+    UpdateRemotePlugins
+  endfunction
+
+  Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+endif
+
+
 call plug#end()
 
 " }}}
@@ -227,6 +237,12 @@ nmap <silent> <Esc><Esc> :<C-u>nohlsearch<Return><Plug>(anzu-clear-search-status
 " vim-over
 nnoremap <silent> <Leader>s :<C-u>OverCommandLine<Return>
 xnoremap <silent> <Leader>s :<C-u>'<,'>OverCommandLine<Return>
+
+" Vim/Neovim specific plugin settings
+if has('nvim')
+  " deoplete.nvim
+  let g:deoplete#enable_at_startup = 1
+endif
 
 " }}}
 
