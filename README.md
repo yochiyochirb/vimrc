@@ -8,38 +8,18 @@ This is a Ruby/Rails-community-driven vimrc and aimed to help you to experience 
 
 ## Installation
 
-Backup your current `.vimrc` and `.vim`.
-
-```
-$ cd ~
-$ mv .vimrc .vimrc.bak
-$ mv .vim .vim.bak
-```
-
-Clone this repository.
+Clone this repository in anywhere you like:
 
 ```
 $ git clone https://github.com/yochiyochirb/vimrc
 ```
 
-Create a symbolic link to `.vim`.
+Just run the installation script:
 
 ```
-$ ln -s /path/to/vimrc/.vim ~/.vim
+$ cd /path/to/vimrc # <= cd to where you clone the repository
+$ ./install # <= Run the installation script
 ```
-
-Create a symbolic link to `.vimrc`.
-
-```
-$ ln -s /path/to/vimrc/.vimrc ~/.vimrc
-```
-
-* neovim  
-  ```
-  $ ln -s /path/to/vimrc/.vimrc ~/.vim/init.vim
-  ```
-  You still need to create a symbolic link in `~/.config` when using neovim.
-
 
 ## Install Plugins
 
