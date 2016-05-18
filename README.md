@@ -258,3 +258,9 @@ vim-blockle is block syntax toggle plugin.
 - `<Leader>b` : Convert `{ ... }` into `do ... end` and vice versa.
 
 For more information, visit https://github.com/jgdavey/vim-blockle or `:help blockle`.
+
+### vim-wakatime
+
+vim-wakatime is a plugin for [WakaTime](https://wakatime.com/). It requires to sign up WakaTime and input API key. If you want not to use it, uncomment `let g:unload_wakatime = 1` in `~/.vimrc.preset` .
+
+For more information, visit https://wakatime.com/help/plugins/vim

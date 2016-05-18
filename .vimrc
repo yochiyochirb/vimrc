@@ -121,6 +121,9 @@ Plug 'tpope/vim-rails'
 Plug 'jgdavey/vim-blockle', { 'for': 'ruby' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+if !get(g:, 'unload_wakatime')
+  Plug 'wakatime/vim-wakatime'
+end
 
 " Colorschemes
 Plug 'tomasr/molokai'
