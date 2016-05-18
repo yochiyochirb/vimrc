@@ -12,6 +12,11 @@ endif
 " ------------------------------------------------
 " {{{1
 
+" Define and re-initialize augroup for vimrc
+augroup vimrc
+  autocmd!
+augroup END
+
 syntax on
 filetype plugin indent on
 
@@ -106,7 +111,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
-Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
@@ -145,7 +149,10 @@ if has('nvim')
     UpdateRemotePlugins
   endfunction
 
+  Plug 'neomake/neomake'
   Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+else
+  Plug 'scrooloose/syntastic'
 endif
 
 
@@ -181,13 +188,6 @@ if executable('ag')
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 endif
-
-" Syntastic
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'python'] }
-let g:syntastic_ruby_checkers = ['rubocop', 'mri']
-let g:syntastic_python_checkers = ['flake8']
 
 " NERDTree
 nnoremap <silent> <Leader>nt :<C-u>NERDTreeToggle<Return>
@@ -240,8 +240,19 @@ xnoremap <silent> <Leader>s :<C-u>'<,'>OverCommandLine<Return>
 
 " Vim/Neovim specific plugin settings
 if has('nvim')
+  " neomake
+  autocmd vimrc BufEnter,BufWritePost * Neomake
+  let g:neomake_verbose = 0
+
   " deoplete.nvim
   let g:deoplete#enable_at_startup = 1
+else
+  " Syntastic
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 0
+  let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'python'] }
+  let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+  let g:syntastic_python_checkers = ['flake8']
 endif
 
 " }}}
