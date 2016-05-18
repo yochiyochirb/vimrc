@@ -1,3 +1,13 @@
+" Load Your .vimrc preset
+" ------------------------------------------------
+" {{{1
+
+if filereadable(expand('~/.vimrc.preset'))
+  source ~/.vimrc.preset
+endif
+
+" }}}
+
 " General Settings
 " ------------------------------------------------
 " {{{1
