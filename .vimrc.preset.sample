@@ -1,0 +1,2 @@
+" if you use vim-watatime, uncomment this line
+" let g:load_wakatime = 1

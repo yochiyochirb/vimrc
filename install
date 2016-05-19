@@ -35,6 +35,8 @@ ln -s $SCRIPT_PATH/.vim $HOME/.vim
 echo "A symbolic link [$HOME/.vim] is created."
 ln -s $SCRIPT_PATH/.vimrc $HOME/.vimrc
 echo "A symbolic link [$HOME/.vimrc] is created."
+cp $SCRIPT_PATH/.vimrc.preset.sample $HOME/.vimrc.preset
+echo "A preset file [$HOME/.vimrc.preset] is copied."
 
 if hash nvim 2>/dev/null; then
   XDG_CONFIG_HOME=${XDG_CONFIG_HOME:=$HOME/.config}

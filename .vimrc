@@ -1,3 +1,13 @@
+" Load Your .vimrc preset
+" ------------------------------------------------
+" {{{1
+
+if filereadable(expand('~/.vimrc.preset'))
+  source ~/.vimrc.preset
+endif
+
+" }}}
+
 " General Settings
 " ------------------------------------------------
 " {{{1
@@ -111,6 +121,9 @@ Plug 'tpope/vim-rails'
 Plug 'jgdavey/vim-blockle', { 'for': 'ruby' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+if get(g:, 'load_wakatime')
+  Plug 'wakatime/vim-wakatime'
+end
 
 " Colorschemes
 Plug 'tomasr/molokai'
