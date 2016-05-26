@@ -122,6 +122,7 @@ Plug 'jgdavey/vim-blockle', { 'for': 'ruby' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell', 'cabal'] }
+Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 
 if get(g:, 'load_wakatime')
   Plug 'wakatime/vim-wakatime'
