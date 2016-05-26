@@ -121,6 +121,11 @@ Plug 'tpope/vim-rails'
 Plug 'jgdavey/vim-blockle', { 'for': 'ruby' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell', 'cabal'] }
+Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] } | Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
+
 if get(g:, 'load_wakatime')
   Plug 'wakatime/vim-wakatime'
 end
@@ -166,8 +171,9 @@ endif
 " Syntastic
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'python'] }
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+let g:syntastic_python_checkers = ['flake8']
 
 " NERDTree
 nnoremap <silent> <Leader>nt :<C-u>NERDTreeToggle<Return>
