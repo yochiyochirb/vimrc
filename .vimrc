@@ -12,6 +12,11 @@ endif
 " ------------------------------------------------
 " {{{1
 
+" Define and re-initialize augroup for vimrc
+augroup vimrc
+  autocmd!
+augroup END
+
 syntax on
 filetype plugin indent on
 
@@ -36,7 +41,11 @@ set title
 set laststatus=2
 
 " Register Settings
-set clipboard^=unnamed,unnamedplus
+if has('nvim')
+  set clipboard+=unnamedplus
+else
+  set clipboard^=unnamed,unnamedplus
+endif
 
 " Leader
 let mapleader = "\<Space>"
@@ -102,7 +111,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
-Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
@@ -128,12 +136,27 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] } | Pl
 
 if get(g:, 'load_wakatime')
   Plug 'wakatime/vim-wakatime'
-end
+endif
 
 " Colorschemes
 Plug 'tomasr/molokai'
 Plug 'sjl/badwolf'
 Plug 'altercation/vim-colors-solarized'
+
+" Vim/Neovim specific plugins
+if has('nvim')
+  function! DoRemote(arg)
+    UpdateRemotePlugins
+  endfunction
+
+  Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+endif
+
+if has('nvim') && get(g:, 'load_neomake')
+  Plug 'neomake/neomake'
+else
+  Plug 'scrooloose/syntastic'
+endif
 
 call plug#end()
 
@@ -167,13 +190,6 @@ if executable('ag')
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 endif
-
-" Syntastic
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'python'] }
-let g:syntastic_ruby_checkers = ['rubocop', 'mri']
-let g:syntastic_python_checkers = ['flake8']
 
 " NERDTree
 nnoremap <silent> <Leader>nt :<C-u>NERDTreeToggle<Return>
@@ -223,6 +239,25 @@ nmap <silent> <Esc><Esc> :<C-u>nohlsearch<Return><Plug>(anzu-clear-search-status
 " vim-over
 nnoremap <silent> <Leader>s :<C-u>OverCommandLine<Return>
 xnoremap <silent> <Leader>s :<C-u>'<,'>OverCommandLine<Return>
+
+" Vim/Neovim specific plugin settings
+if has('nvim')
+  " deoplete.nvim
+  let g:deoplete#enable_at_startup = 1
+endif
+
+if has('nvim') && get(g:, 'load_neomake')
+  " neomake
+  autocmd vimrc BufEnter,BufWritePost * Neomake
+  let g:neomake_verbose = 0
+else
+  " Syntastic
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 0
+  let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'python'] }
+  let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+  let g:syntastic_python_checkers = ['flake8']
+endif
 
 " }}}
 
