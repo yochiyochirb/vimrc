@@ -136,7 +136,7 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] } | Pl
 
 if get(g:, 'load_wakatime')
   Plug 'wakatime/vim-wakatime'
-end
+endif
 
 " Colorschemes
 Plug 'tomasr/molokai'
@@ -149,12 +149,14 @@ if has('nvim')
     UpdateRemotePlugins
   endfunction
 
-  Plug 'neomake/neomake'
   Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+endif
+
+if has('nvim') && get(g:, 'load_neomake')
+  Plug 'neomake/neomake'
 else
   Plug 'scrooloose/syntastic'
 endif
-
 
 call plug#end()
 
@@ -240,12 +242,14 @@ xnoremap <silent> <Leader>s :<C-u>'<,'>OverCommandLine<Return>
 
 " Vim/Neovim specific plugin settings
 if has('nvim')
+  " deoplete.nvim
+  let g:deoplete#enable_at_startup = 1
+endif
+
+if has('nvim') && get(g:, 'load_neomake')
   " neomake
   autocmd vimrc BufEnter,BufWritePost * Neomake
   let g:neomake_verbose = 0
-
-  " deoplete.nvim
-  let g:deoplete#enable_at_startup = 1
 else
   " Syntastic
   let g:syntastic_check_on_open = 1

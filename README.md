@@ -264,3 +264,9 @@ For more information, visit https://github.com/jgdavey/vim-blockle or `:help blo
 vim-wakatime is a plugin for [WakaTime](https://wakatime.com/). It requires to sign up WakaTime and input API key. If you want to use it, uncomment `let g:load_wakatime = 1` in `~/.vimrc.preset` .
 
 For more information, visit https://wakatime.com/help/plugins/vim
+
+### Neomake (only on Neovim)
+
+Neomake is a plugin for asynchronous `:make`. If you want to use it, uncomment `let g:load_neomake = 1` in `~/.vimrc.preset` .
+
+For more information, visit https://github.com/neomake/neomake
