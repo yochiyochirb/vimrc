@@ -138,6 +138,10 @@ if get(g:, 'load_wakatime')
   Plug 'wakatime/vim-wakatime'
 endif
 
+if get(g:, 'load_cpsm')
+  Plug 'nixprime/cpsm', { 'do': 'bash install.sh' }
+endif
+
 " Colorschemes
 Plug 'tomasr/molokai'
 Plug 'sjl/badwolf'
@@ -206,8 +210,17 @@ nnoremap <silent> [rails]h :<C-u>Unite<Space>rails/helper<Return>
 " unite-outline
 nnoremap <silent> [unite]o :<C-u>Unite<Space>-vertical<Space>-no-quit<Space>-direction=botright<Space>-winwidth=35<Space>outline<Return>
 
-" ctrlp
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" CtrlP
+if get(g:, 'load_cpsm')
+  let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
+endif
+
+if get(g:, 'ctrlp_use_files') && executable('files')
+  let g:ctrlp_user_command = 'files -a %s'
+else
+  let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+endif
+
 let g:ctrlp_match_window = 'bottom,order:btt,min:3,max:15,results:15'
 let g:ctrlp_open_new_file = 'r'
 
