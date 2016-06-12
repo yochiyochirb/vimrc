@@ -243,13 +243,18 @@ A few things at least you have to know about vim-better-whitespace are:
 - `:ToggleWhitespace` : to toggle whitespace highlighting on/off (on by default)
 - `:StripWhitespace` : to clean all extra whitespaces
 
-### ctrlp
+### CtrlP
 
-ctrlp is a full path fuzzy file etc finder for vim.
+CtrlP is a full path fuzzy file etc finder for vim.
 
 - `Ctrl + p` : open ctrlp, then show magaged files via git
 
 For more information, visit https://github.com/ctrlpvim/ctrlp.vim or `:help ctrlp`.
+
+**[Advanced]** Since CtrlP also provides the ways to customize matcher/file listup command, you can change them if you want by modifying `~/.vimrc.preset` .
+
+- if you want to use [cpsm](https://github.com/nixprime/cpsm) as the matcher, uncomment `let g:load_cpsm = 1`
+- if you want to use [files](https://github.com/mattn/files) for file listing, uncomment `let g:ctrlp_use_files = 1`
 
 ### vim-blockle
 
