@@ -154,6 +154,10 @@ if has('nvim')
   endfunction
 
   Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+else
+  if has('lua')
+    Plug 'Shougo/neocomplete.vim'
+  endif
 endif
 
 if has('nvim') && get(g:, 'load_neomake')
@@ -257,6 +261,11 @@ xnoremap <silent> <Leader>s :<C-u>'<,'>OverCommandLine<Return>
 if has('nvim')
   " deoplete.nvim
   let g:deoplete#enable_at_startup = 1
+else
+  if has('lua')
+    " neocomplete.vim
+    let g:neocomplete#enable_at_startup = 1
+  endif
 endif
 
 if has('nvim') && get(g:, 'load_neomake')
