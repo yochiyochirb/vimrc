@@ -107,6 +107,7 @@ Plug 'Shougo/neomru.vim'
 Plug 'Shougo/unite.vim'
 Plug 'basyura/unite-rails'
 Plug 'Shougo/unite-outline'
+Plug '5t111111/unite-gtags', { 'branch': 'gem-support' }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'easymotion/vim-easymotion'
@@ -214,6 +215,19 @@ nnoremap <silent> [rails]h :<C-u>Unite<Space>rails/helper<Return>
 
 " unite-outline
 nnoremap <silent> [unite]o :<C-u>Unite<Space>-vertical<Space>-no-quit<Space>-direction=botright<Space>-winwidth=35<Space>outline<Return>
+
+" unite-gtags
+let g:unite_source_gtags_project_config = {
+      \   '_': {
+      \     'through_all_tags': 1
+      \   }
+      \ }
+
+nnoremap [gtags] <Nop>
+nmap     <Leader>t [gtags]
+nnoremap <silent> [gtags]t :<C-u>Unite<Space>gtags/context<Return>
+nnoremap <silent> [gtags]d :<C-u>Unite<Space>gtags/def<Return>
+nnoremap <silent> [gtags]r :<C-u>Unite<Space>gtags/ref<Return>
 
 " CtrlP
 if get(g:, 'load_cpsm')
