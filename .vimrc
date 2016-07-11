@@ -133,6 +133,7 @@ Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell', 'cabal'] }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] } | Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
+Plug 'haya14busa/vim-migemo'
 
 if get(g:, 'load_wakatime')
   Plug 'wakatime/vim-wakatime'
@@ -256,6 +257,9 @@ nmap <silent> <Esc><Esc> :<C-u>nohlsearch<Return><Plug>(anzu-clear-search-status
 " vim-over
 nnoremap <silent> <Leader>s :<C-u>OverCommandLine<Return>
 xnoremap <silent> <Leader>s :<C-u>'<,'>OverCommandLine<Return>
+
+" vim-migemo
+nmap <silent> g/ <Plug>(migemo-migemosearch)
 
 " Vim/Neovim specific plugin settings
 if has('nvim')
