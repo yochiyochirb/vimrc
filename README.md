@@ -270,6 +270,15 @@ vim-wakatime is a plugin for [WakaTime](https://wakatime.com/). It requires to s
 
 For more information, visit https://wakatime.com/help/plugins/vim
 
+### vim-migemo
+
+vim-migemo is a plugin for [migemo (cmigemo)](http://www.kaoriya.net/software/cmigemo/) search. It requires cmigemo (When using OS X, you can install it via `brew install cmigemo`.
+
+- `g/` or `<Leader>mi` to start migemo search
+- You can search a word with "Okurigana" by using upper characters (e.g. 'jikkouSuru' for '実行する')
+
+For more information, visit https://github.com/haya14busa/vim-migemo
+
 ### Neomake (only on Neovim)
 
 Neomake is a plugin for asynchronous `:make`. If you want to use it, uncomment `let g:load_neomake = 1` in `~/.vimrc.preset` .
