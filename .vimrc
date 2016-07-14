@@ -133,6 +133,7 @@ Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell', 'cabal'] }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] } | Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
+Plug 'sunaku/vim-ruby-minitest'
 Plug 'haya14busa/vim-migemo'
 
 if get(g:, 'load_wakatime')
