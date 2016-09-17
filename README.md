@@ -11,7 +11,7 @@ This is a Ruby/Rails-community-driven vimrc and aimed to help you to experience 
 Clone this repository in anywhere you like:
 
 ```
-$ git clone https://github.com/yochiyochirb/vimrc
+$ git clone https://github.com/yochiyochirb/vimrc.git
 ```
 
 Just run the installation script:
