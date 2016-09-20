@@ -148,6 +148,7 @@ endif
 Plug 'tomasr/molokai'
 Plug 'sjl/badwolf'
 Plug 'altercation/vim-colors-solarized'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Vim/Neovim specific plugins
 if has('nvim')

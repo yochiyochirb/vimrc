@@ -59,6 +59,7 @@ The following additional coloschemes are available:
 - [molokai](https://github.com/tomasr/molokai)
 - [badwolf](https://github.com/sjl/badwolf)
 - [solarized](https://github.com/altercation/vim-colors-solarized)
+- [dracula](https://github.com/dracula/vim)
 
 Add the theme you prefer in `~/.vimrc.local`, like:
 
