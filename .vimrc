@@ -143,7 +143,7 @@ if get(g:, 'load_wakatime')
 endif
 
 if get(g:, 'load_cpsm')
-  Plug 'nixprime/cpsm', { 'do': 'bash install.sh' }
+  Plug 'nixprime/cpsm', { 'do': 'env PY3=ON ./install.sh' }
 endif
 
 if get(g:, 'load_vimwiki')
@@ -163,6 +163,7 @@ if has('nvim')
   endfunction
 
   Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+  Plug 'Shougo/denite.nvim', { 'do': function('DoRemote') }
 else
   if has('lua')
     Plug 'Shougo/neocomplete.vim'
@@ -233,6 +234,12 @@ nnoremap <silent> [unite]o :<C-u>Unite<Space>-vertical<Space>-no-quit<Space>-dir
 " CtrlP
 if get(g:, 'load_cpsm')
   let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
+
+
+  if has('nvim')
+    " Denite.vim integration
+    call denite#custom#source('file_rec', 'matcher', ['matcher_cpsm'])
+  endif
 endif
 
 let g:ctrlp_user_command = {
@@ -280,6 +287,12 @@ nmap <silent> g/ <Plug>(migemo-migemosearch)
 if has('nvim')
   " deoplete.nvim
   let g:deoplete#enable_at_startup = 1
+
+  " Denite.vim
+  nnoremap <silent> [unite]r :<C-u>Denite<Space>file_mru<Return>
+  nnoremap <silent> [unite]fp :<C-u>Denite<Space>file_rec<Return>
+  nnoremap <silent> [unite]gp :<C-u>Denite<Space>grep<Return>
+  nnoremap <silent> [unite]l :<C-u>Denite<Space>line<Return>
 else
   if has('lua')
     " neocomplete.vim
