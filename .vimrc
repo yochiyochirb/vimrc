@@ -222,8 +222,12 @@ if get(g:, 'load_cpsm')
   let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
 endif
 
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
+let g:ctrlp_user_command = {
+  \ 'types': {
+    \ 1: ['.git', 'git -C %s ls-files --cached --exclude-standard --others'],
+    \ },
+  \ 'fallback': 'find %s -type f'
+  \ }
 let g:ctrlp_match_window = 'bottom,order:btt,min:3,max:15,results:15'
 let g:ctrlp_open_new_file = 'r'
 
