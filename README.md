@@ -284,3 +284,22 @@ For more information, visit https://github.com/haya14busa/vim-migemo
 Neomake is a plugin for asynchronous `:make`. If you want to use it, uncomment `let g:load_neomake = 1` in `~/.vimrc.preset` .
 
 For more information, visit https://github.com/neomake/neomake
+
+### vim-surround
+
+This plugin is a tool for dealing with pairs of "surroundings." Examples of surroundings include parentheses, quotes, and HTML tags.
+They are closely related to what Vim refers to as |text-objects|.
+Provided are mappings to allow for removing, changing, and adding surroundings.
+
+Details follow on the exact semantics, but first, consider the following
+examples.  An asterisk (\*) is used to denote the cursor position.
+
+| Old text                | Command   | New text ~                  |
+| :---------------------- | :-------- | :-------------------------- |
+| `"Hello *world!"`       | `ds"`     | `Hello world!`              |
+| `[123+4*56]/2`          | `cs])`    | `(123+456)/2`               |
+| `"Look ma, I'm *HTML!"` | `cs"<q>`  | `<q>Look ma, I'm HTML!</q>` |
+| `if *x>3 {`             | `ysW(`    | `if ( x>3 ) {`              |
+| `my $str = *whee!;`     | `vllllS'` | `my $str = 'whee!';`        |
+
+For more information, visit https://github.com/tpope/vim-surround or `:help surround`.
