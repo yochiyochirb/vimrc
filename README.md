@@ -303,3 +303,19 @@ examples.  An asterisk (\*) is used to denote the cursor position.
 | `my $str = *whee!;`     | `vllllS'` | `my $str = 'whee!';`        |
 
 For more information, visit https://github.com/tpope/vim-surround or `:help surround`.
+
+### Neosnippet
+
+The Neosnippet plug-In adds snippet support to Vim. Snippets are small templates for commonly used code that you can fill in on the fly. You can choose snippets with the neocomplcache / neocomplete interface.
+
+1. Open Ruby file (`*.rb`)
+2. Input `def` then select a snippet candidate
+3. `Ctrl + k` to expand a selected snippet
+4. Enter a method name and press `Ctrl + k` again to select the next input
+
+The other few things at least you have to know about Neosnippet are:
+
+- You can see all defaut built-in snippet list [here](https://github.com/Shougo/neosnippet-snippets/tree/master/neosnippets)
+- If you want to add new snippets, add `*.snip` to `.vim/snippets`.
+
+For more information, visit https://github.com/Shougo/neosnippet.vim or `:help neosnippet`.
