@@ -163,7 +163,7 @@ else
   endif
 endif
 
-if has('nvim') && get(g:, 'load_neomake')
+if get(g:, 'load_neomake')
   Plug 'neomake/neomake'
 else
   Plug 'scrooloose/syntastic'
@@ -274,7 +274,7 @@ else
   endif
 endif
 
-if has('nvim') && get(g:, 'load_neomake')
+if get(g:, 'load_neomake')
   " neomake
   autocmd vimrc BufEnter,BufWritePost * Neomake
   let g:neomake_verbose = 0
