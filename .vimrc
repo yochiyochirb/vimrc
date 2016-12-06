@@ -163,10 +163,10 @@ else
   endif
 endif
 
-if get(g:, 'load_neomake')
-  Plug 'neomake/neomake'
-else
+if get(g:, 'load_syntastic')
   Plug 'scrooloose/syntastic'
+else
+  Plug 'neomake/neomake'
 endif
 
 call plug#end()
@@ -274,17 +274,17 @@ else
   endif
 endif
 
-if get(g:, 'load_neomake')
-  " neomake
-  autocmd vimrc BufEnter,BufWritePost * Neomake
-  let g:neomake_verbose = 0
-else
+if get(g:, 'load_syntastic')
   " Syntastic
   let g:syntastic_check_on_open = 1
   let g:syntastic_check_on_wq = 0
   let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'python'] }
   let g:syntastic_ruby_checkers = ['rubocop', 'mri']
   let g:syntastic_python_checkers = ['flake8']
+else
+  " neomake
+  autocmd vimrc BufEnter,BufWritePost * Neomake
+  let g:neomake_verbose = 0
 endif
 
 " }}}
