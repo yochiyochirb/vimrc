@@ -279,11 +279,23 @@ vim-migemo is a plugin for [migemo (cmigemo)](http://www.kaoriya.net/software/cm
 
 For more information, visit https://github.com/haya14busa/vim-migemo
 
-### Neomake (only on Neovim)
+### Neomake
 
-Neomake is a plugin for asynchronous `:make`. If you want to use it, uncomment `let g:load_neomake = 1` in `~/.vimrc.preset` .
+Neomake is a plugin for asynchronous `:make`.
 
-For more information, visit https://github.com/neomake/neomake
+Although Neomake has quite a few builtin configuration by default (including `rubocop`), you are also able to add a specific maker in accordance with its file type. Say if you want to use `eslint` on the `javascritpt` files, you can add the following lines to `~/.vimrc.local`:
+
+```vim
+let g:neomake_javascript_enabled_makers = ['eslint']
+```
+
+For more information, visit https://github.com/neomake/neomake or `:help neomake`.
+
+### Syntastic
+
+Syntastic is a syntax checking plugin. You can use it as an alternative option to static code analysis plugin (Neomake by default). If you want to use it, uncomment `let g:load_synstastic = 1` in `~/.vimrc.preset` .
+
+For more information, visit https://github.com/vim-syntastic/syntastic or `:help syntastic`.
 
 ### vim-surround
 
