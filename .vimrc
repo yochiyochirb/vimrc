@@ -150,6 +150,18 @@ if get(g:, 'load_vimwiki')
   Plug 'vimwiki/vimwiki'
 endif
 
+if get(g:, 'load_denite')
+  if !has('nvim')
+    Plug 'Shougo/denite.nvim'
+  endif
+endif
+
+if get(g:, 'load_syntastic')
+  Plug 'scrooloose/syntastic'
+else
+  Plug 'neomake/neomake'
+endif
+
 " Colorschemes
 Plug 'tomasr/molokai'
 Plug 'sjl/badwolf'
@@ -163,17 +175,14 @@ if has('nvim')
   endfunction
 
   Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-  Plug 'Shougo/denite.nvim', { 'do': function('DoRemote') }
+
+  if get(g:, 'load_denite')
+    Plug 'Shougo/denite.nvim', { 'do': function('DoRemote') }
+  endif
 else
   if has('lua')
     Plug 'Shougo/neocomplete.vim'
   endif
-endif
-
-if get(g:, 'load_syntastic')
-  Plug 'scrooloose/syntastic'
-else
-  Plug 'neomake/neomake'
 endif
 
 call plug#end()
@@ -209,6 +218,28 @@ if executable('ag')
   let g:unite_source_grep_recursive_opt = ''
 endif
 
+" Denite.vim
+if get(g:, 'load_denite')
+  nnoremap <silent> [unite]r :<C-u>Denite<Space>file_mru<Return>
+  nnoremap <silent> [unite]fp :<C-u>Denite<Space>file_rec<Return>
+  nnoremap <silent> [unite]gp :<C-u>Denite<Space>grep<Return>
+  nnoremap <silent> [unite]l :<C-u>Denite<Space>line<Return>
+  nnoremap <silent> [unite]u :<C-u>Denite<Space>-resume<Return>
+
+  call denite#custom#map('insert', '<C-j>', 'move_to_next_line')
+  call denite#custom#map('insert', '<C-k>', 'move_to_prev_line')
+  call denite#custom#map('insert', '<C-x>', 'input_command_line')
+
+  " Use 'ag' instead of 'grep' if available
+  if executable('ag')
+    call denite#custom#var('grep', 'command', ['ag'])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'final_opts', [])
+    call denite#custom#var('grep', 'separator', [])
+    call denite#custom#var('grep', 'default_opts', ['--follow', '--nogroup', '--nocolor', '--column'])
+  endif
+endif
+
 " Neosnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -235,9 +266,8 @@ nnoremap <silent> [unite]o :<C-u>Unite<Space>-vertical<Space>-no-quit<Space>-dir
 if get(g:, 'load_cpsm')
   let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
 
-
-  if has('nvim')
-    " Denite.vim integration
+  " Denite.vim integration
+  if get(g:, 'load_denite')
     call denite#custom#source('file_rec', 'matcher', ['matcher_cpsm'])
   endif
 endif
@@ -287,12 +317,6 @@ nmap <silent> g/ <Plug>(migemo-migemosearch)
 if has('nvim')
   " deoplete.nvim
   let g:deoplete#enable_at_startup = 1
-
-  " Denite.vim
-  nnoremap <silent> [unite]r :<C-u>Denite<Space>file_mru<Return>
-  nnoremap <silent> [unite]fp :<C-u>Denite<Space>file_rec<Return>
-  nnoremap <silent> [unite]gp :<C-u>Denite<Space>grep<Return>
-  nnoremap <silent> [unite]l :<C-u>Denite<Space>line<Return>
 else
   if has('lua')
     " neocomplete.vim

@@ -7,3 +7,7 @@
 " if you want to use cpsm for CtrlP matcher, uncomment this line
 " (cpsm requires Vim compiled with the +python flag and C++ compiler supporting C++11)
 " let g:load_cpsm = 1
+
+" if you want to use Denite, uncomment this line
+" (Some features using Unite are overwritten, but others remain active)
+let g:load_denite = 1
