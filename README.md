@@ -202,6 +202,23 @@ The one thing at least you have to know about previm is:
 
 For more information, visit https://github.com/kannokanno/previm or `:help previm`.
 
+### open-browser-github
+
+open-browser-github is a plugin to open current file (or issue, etc.) in GitHub.
+
+A few things at least you have to know about open-browser-github are:
+
+- `:OpenGithubFile` : to open current file's URL in GitHub
+- `:'<,'>OpenGithubFile` : to open current file's URL in GitHub with highlight
+- `:OpenGithubFile path/to/file` : to open a specific file in GitHub
+- `:OpenGithubProject` : to open current resipotory top page in GitHub
+- `:OpenGithubIssue` : to open current repository issue list in GitHub
+- `:OpenGithubIssue 1` : to open current repository issue (or pull request) #1 in GitHub
+- `:OpenGithubPullReq` : to open current repository pull request list in GitHub
+- `:OpenGithubPullReq 1` : same as `:OpenGithubIssue 1`
+
+For more information, visit https://github.com/tyru/open-browser-github.vim or `:help openbrowser-github`.
+
 ### caw
 
 caw is a comment plugin.

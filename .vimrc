@@ -118,7 +118,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'jreybert/vimagit'
 Plug 'godlygeek/tabular', { 'for': 'markdown' } | Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'kannokanno/previm', { 'for': 'markdown' }
-Plug 'tyru/open-browser.vim', { 'for': 'markdown' }
+Plug 'tyru/open-browser.vim'
+Plug 'tyru/open-browser-github.vim'
 Plug 'tyru/caw.vim'
 Plug 'osyo-manga/vim-anzu'
 Plug 'osyo-manga/vim-over'
