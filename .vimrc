@@ -226,9 +226,9 @@ if get(g:, 'load_denite')
   nnoremap <silent> [unite]l :<C-u>Denite<Space>line<Return>
   nnoremap <silent> [unite]u :<C-u>Denite<Space>-resume<Return>
 
-  call denite#custom#map('insert', '<C-j>', 'move_to_next_line')
-  call denite#custom#map('insert', '<C-k>', 'move_to_prev_line')
-  call denite#custom#map('insert', '<C-x>', 'input_command_line')
+  call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
+  call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
+  call denite#custom#map('insert', '<C-x>', '<denite:input_command_line>', 'noremap')
 
   " Use 'ag' instead of 'grep' if available
   if executable('ag')
