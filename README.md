@@ -348,3 +348,27 @@ The other few things at least you have to know about Neosnippet are:
 - If you want to add new snippets, add `*.snip` to `.vim/snippets`.
 
 For more information, visit https://github.com/Shougo/neosnippet.vim or `:help neosnippet`.
+
+### vimwiki
+
+vimwiki constructs wiki in local. Default dir for wiki is `~/vimwiki` and file extension is markdown in this setting.
+
+- `<Leader>ww`: Open wiki home `~/vimwiki/index.md`
+
+This plugin works with calendar-vim. Press `Enter` on calendar view, Create a new wiki `~/vimwiki/diary/YYYY-MM-DD.md` and open it.
+
+#### little tips
+
+- Press `Enter` on a some word, make it link style. Then Press `Enter` again, create new page for it and open it.
+- Press `C-Space` on check list, toggle check on/off
+
+For more information, visit https://github.com/vimwiki/vimwiki or `:help vimwiki`.
+
+### calendar-vim
+
+There is no need to leave vim for viewing calendar.
+
+- `<Leader>cal`: Vertically-split calendar
+- `<Leader>caL`: Horizontally-split calendar
+
+For more information, visit https://github.com/mattn/calendar-vim or `:help calendar`.
