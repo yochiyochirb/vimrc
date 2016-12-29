@@ -78,9 +78,11 @@ nnoremap k gk
 nnoremap gj j
 nnoremap gk k
 
+" Switch buffer "DON'T USE CURSOR KEYS, USE HJKL"
+nnoremap <Left> :<C-u>bprevious<Return>
+nnoremap <Right> :<C-u>bNext<Return>
+
 " The drill sergeant says "DON'T USE CURSOR KEYS, USE HJKL"
-nnoremap <Left> :echoe<Space>"Use h"<Return>
-nnoremap <Right> :echoe<Space>"Use l"<Return>
 nnoremap <Up> :echoe<Space>"Use k"<Return>
 nnoremap <Down> :echoe<Space>"Use j"<Return>
 
