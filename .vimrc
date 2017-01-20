@@ -136,6 +136,7 @@ Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] } | Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 Plug 'sunaku/vim-ruby-minitest'
 Plug 'haya14busa/vim-migemo'
+Plug 'mattn/calendar-vim'
 
 if get(g:, 'load_wakatime')
   Plug 'wakatime/vim-wakatime'
@@ -143,6 +144,10 @@ endif
 
 if get(g:, 'load_cpsm')
   Plug 'nixprime/cpsm', { 'do': 'bash install.sh' }
+endif
+
+if get(g:, 'load_vimwiki')
+  Plug 'vimwiki/vimwiki'
 endif
 
 " Colorschemes
@@ -294,6 +299,14 @@ else
   autocmd vimrc BufEnter,BufWritePost * Neomake
   let g:neomake_verbose = 0
 endif
+
+" vimwiki
+let g:vimwiki_list = [{
+  \ 'path': '~/vimwiki/',
+  \ 'syntax': 'markdown', 'ext': '.md'
+\}]
+let g:vimwiki_global_ext = 0
+let g:vimwiki_use_calendar = 1
 
 " }}}
 
