@@ -233,10 +233,12 @@ if get(g:, 'load_denite')
   " Use 'ag' instead of 'grep' if available
   if executable('ag')
     call denite#custom#var('grep', 'command', ['ag'])
+    call denite#custom#var('grep', 'default_opts',
+                    \ ['--follow', '--nogroup', '--nocolor', '--column'])
     call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', ['--match'])
+    call denite#custom#var('grep', 'separator', ['--'])
     call denite#custom#var('grep', 'final_opts', [])
-    call denite#custom#var('grep', 'separator', [])
-    call denite#custom#var('grep', 'default_opts', ['--follow', '--nogroup', '--nocolor', '--column'])
   endif
 endif
 
