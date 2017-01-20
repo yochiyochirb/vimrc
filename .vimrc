@@ -174,6 +174,8 @@ Plug 'tomasr/molokai'
 Plug 'sjl/badwolf'
 Plug 'altercation/vim-colors-solarized'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'benreic/peakseacolor'
 
 " Vim/Neovim specific plugins
 if has('nvim')
