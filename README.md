@@ -364,6 +364,17 @@ This plugin works with calendar-vim. Press `Enter` on calendar view, Create a ne
 
 For more information, visit https://github.com/vimwiki/vimwiki or `:help vimwiki`.
 
+#### advanced configuration
+
+If you would rather set the vimwiki location other than the default `~/vimwiki`, add the below settings to `~/.vimrc.local` (change `path` to any location you want) .
+
+```vim
+let g:vimwiki_list = [{
+  \ 'path': '/path/to/directory/you/prefer',
+  \ 'syntax': 'markdown', 'ext': '.md'
+\}]
+```
+
 ### calendar-vim
 
 There is no need to leave vim for viewing calendar.
