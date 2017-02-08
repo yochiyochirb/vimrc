@@ -79,6 +79,7 @@ A few things at least you have to know about Unite are:
 - `<Leader>ub` : to "unite" buffers
 - `<Leader>ufp` : to "unite" find files in the project (e.g. for files in git repository)
 - `<Leader>ugp` : to "unite" grep files in the project (e.g. from files in git repository)
+  - ag will be used as grep source if available
 
 For more information, visit https://github.com/Shougo/unite.vim or `:help unite`.
 
@@ -102,6 +103,29 @@ unite-outline is a unite plugin for current buffer outline view.
 - `<Leader>uo` : to "unite" outline into right window which is not close.
 
 For more information, visit https://github.com/Shougo/unite-outline or `:help unite-outline`.
+
+### Denite.nvim
+
+Denite.nvim is to unite all interfaces for NeoVim/Vim. Maybe Unite will be replaced with Denite in near future
+because the plugin author of Unite states that active development of Unite has stopped.
+
+However, for the moment Denite.vim is an optional choice as it does not have enough sources (like unite-rails)
+and maybe still has many breaking changes, so you have to explicitly configure your `~/.vimrc.preset` by
+uncommenting `let g:load_denite = 1`.
+
+A few things at least you have to know about Denite are:
+
+- It requires Neovim or Vim 8.0+ with if_python3
+- `<C-j>` : to move to next line
+- `<C-k>` : to move to previous line
+- `<Leader>ur` : to "denite" recently opened files
+- `<Leader>ub` : to "denite" buffers
+- `<Leader>ufp` : to "denite" find files in the project (e.g. for files in git repository)
+  - It is alomost the same as CtrlP
+- `<Leader>ugp` : to "denite" grep files in the project (e.g. from files in git repository)
+  - ag will be used as grep source if available
+
+For more information, visit https://github.com/Shougo/denite.nvim or `:help denite`.
 
 ### easymotion
 
