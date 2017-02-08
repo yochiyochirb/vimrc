@@ -221,6 +221,7 @@ endif
 " Denite.vim
 if get(g:, 'load_denite')
   nnoremap <silent> [unite]r :<C-u>Denite<Space>file_mru<Return>
+  nnoremap <silent> [unite]b :<C-u>Denite<Space>buffer<Return>
   nnoremap <silent> [unite]fp :<C-u>Denite<Space>file_rec<Return>
   nnoremap <silent> [unite]gp :<C-u>Denite<Space>grep<Return>
   nnoremap <silent> [unite]l :<C-u>Denite<Space>line<Return>
