@@ -134,6 +134,7 @@ Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell', 'cabal'] }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] } | Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
+Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'sunaku/vim-ruby-minitest'
 Plug 'haya14busa/vim-migemo'
 Plug 'mattn/calendar-vim'
@@ -299,6 +300,22 @@ else
   autocmd vimrc BufEnter,BufWritePost * Neomake
   let g:neomake_verbose = 0
 endif
+
+" vim-go
+" See https://github.com/fatih/vim-go#example-mappings for mapping details
+autocmd FileType go nmap <Leader>r <Plug>(go-run)
+autocmd FileType go nmap <Leader>b <Plug>(go-build)
+autocmd FileType go nmap <Leader>t <Plug>(go-test)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage)
+autocmd FileType go nmap <Leader>ds <Plug>(go-def-split)
+autocmd FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+autocmd FileType go nmap <Leader>dt <Plug>(go-def-tab)
+autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
+autocmd FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+autocmd FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+autocmd FileType go nmap <Leader>s <Plug>(go-implements)
+autocmd FileType go nmap <Leader>i <Plug>(go-info)
+autocmd FileType go nmap <Leader>e <Plug>(go-rename)
 
 " vimwiki
 let g:vimwiki_list = [{
