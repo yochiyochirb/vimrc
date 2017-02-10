@@ -40,6 +40,10 @@ set backspace=indent,eol,start
 set title
 set laststatus=2
 
+" Wildmode settings for Zsh like completion
+set wildmenu
+set wildmode=longest,full
+
 " Register Settings
 if has('nvim')
   set clipboard+=unnamedplus
