@@ -376,6 +376,7 @@ For more information, visit https://github.com/Shougo/neosnippet.vim or `:help n
 ### vimwiki
 
 vimwiki constructs wiki in local. Default dir for wiki is `~/vimwiki` and file extension is markdown in this setting.
+If you want to use vimwiki, uncomment `let g:load_vimwiki = 1` in `~/.vimrc.preset` .
 
 - `<Leader>ww`: Open wiki home `~/vimwiki/index.md`
 
