@@ -11,3 +11,6 @@
 " if you want to use Denite, uncomment this line
 " (Some features using Unite are overwritten, but others remain active)
 " let g:load_denite = 1
+
+" if you want to use vimwiki, uncomment this line
+" let g:load_vimwiki = 1
