@@ -408,3 +408,11 @@ There is no need to leave vim for viewing calendar.
 - `<Leader>caL`: Horizontally-split calendar
 
 For more information, visit https://github.com/mattn/calendar-vim or `:help calendar`.
+
+### unite-turnip
+
+If you use [Turnip](https://github.com/jnicklas/turnip), unite-turnip will help you.
+
+Type `:Unite turnip` to list existing turnip steps.
+
+For more information, visit https://github.com/mtsmfm/unite-turnip .
