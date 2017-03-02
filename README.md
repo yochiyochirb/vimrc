@@ -104,6 +104,14 @@ unite-outline is a unite plugin for current buffer outline view.
 
 For more information, visit https://github.com/Shougo/unite-outline or `:help unite-outline`.
 
+### unite-turnip
+
+If you use [Turnip](https://github.com/jnicklas/turnip), unite-turnip will help you.
+
+Type `:Unite turnip` to list existing turnip steps.
+
+For more information, visit https://github.com/mtsmfm/unite-turnip .
+
 ### Denite.nvim
 
 Denite.nvim is to unite all interfaces for NeoVim/Vim. Maybe Unite will be replaced with Denite in near future
@@ -408,11 +416,3 @@ There is no need to leave vim for viewing calendar.
 - `<Leader>caL`: Horizontally-split calendar
 
 For more information, visit https://github.com/mattn/calendar-vim or `:help calendar`.
-
-### unite-turnip
-
-If you use [Turnip](https://github.com/jnicklas/turnip), unite-turnip will help you.
-
-Type `:Unite turnip` to list existing turnip steps.
-
-For more information, visit https://github.com/mtsmfm/unite-turnip .
