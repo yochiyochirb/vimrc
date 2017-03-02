@@ -143,6 +143,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'sunaku/vim-ruby-minitest'
 Plug 'haya14busa/vim-migemo'
 Plug 'mattn/calendar-vim'
+Plug 'mtsmfm/unite-turnip'
 
 if get(g:, 'load_wakatime')
   Plug 'wakatime/vim-wakatime'
