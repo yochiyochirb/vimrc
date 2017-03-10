@@ -109,7 +109,6 @@ Plug 'Shougo/neomru.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'basyura/unite-rails'
 Plug 'Shougo/unite-outline'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'bling/vim-airline'
@@ -160,7 +159,10 @@ endif
 if get(g:, 'load_denite')
   if !has('nvim')
     Plug 'Shougo/denite.nvim'
+    Plug '5t111111/denite-rails'
   endif
+else
+  Plug 'basyura/unite-rails'
 endif
 
 if get(g:, 'load_syntastic')
@@ -185,6 +187,7 @@ if has('nvim')
 
   if get(g:, 'load_denite')
     Plug 'Shougo/denite.nvim', { 'do': function('DoRemote') }
+    Plug '5t111111/denite-rails'
   endif
 else
   if has('lua')
@@ -225,6 +228,18 @@ if executable('ag')
   let g:unite_source_grep_recursive_opt = ''
 endif
 
+" unite-rails
+nnoremap [rails] <Nop>
+nmap     <Leader>r [rails]
+nnoremap [rails]r :Unite<Space>rails/
+nnoremap <silent> [rails]m :<C-u>Unite<Space>rails/model<Return>
+nnoremap <silent> [rails]c :<C-u>Unite<Space>rails/controller<Return>
+nnoremap <silent> [rails]v :<C-u>Unite<Space>rails/view<Return>
+nnoremap <silent> [rails]h :<C-u>Unite<Space>rails/helper<Return>
+
+" unite-outline
+nnoremap <silent> [unite]o :<C-u>Unite<Space>-vertical<Space>-no-quit<Space>-direction=botright<Space>-winwidth=35<Space>outline<Return>
+
 " Denite.vim
 if get(g:, 'load_denite')
   nnoremap <silent> [unite]r :<C-u>Denite<Space>file_mru<Return>
@@ -248,6 +263,17 @@ if get(g:, 'load_denite')
     call denite#custom#var('grep', 'separator', ['--'])
     call denite#custom#var('grep', 'final_opts', [])
   endif
+
+  " denite-rails
+  nnoremap [rails] <Nop>
+  nmap     <Leader>r [rails]
+  nnoremap [rails]r :Denite<Space>rails:
+  nnoremap <silent> [rails]r :<C-u>Denite<Space>rails:dwim<Return>
+  nnoremap <silent> [rails]m :<C-u>Denite<Space>rails:model<Return>
+  nnoremap <silent> [rails]c :<C-u>Denite<Space>rails:controller<Return>
+  nnoremap <silent> [rails]v :<C-u>Denite<Space>rails:view<Return>
+  nnoremap <silent> [rails]h :<C-u>Denite<Space>rails:helper<Return>
+  nnoremap <silent> [rails]t :<C-u>Denite<Space>rails:test<Return>
 endif
 
 " Neosnippet
@@ -259,18 +285,6 @@ let g:neosnippet#snippets_directory='~/.vim/snippets'
 
 " NERDTree
 nnoremap <silent> <Leader>nt :<C-u>NERDTreeToggle<Return>
-
-" unite-rails
-nnoremap [rails] <Nop>
-nmap     <Leader>r [rails]
-nnoremap [rails]r :Unite<Space>rails/
-nnoremap <silent> [rails]m :<C-u>Unite<Space>rails/model<Return>
-nnoremap <silent> [rails]c :<C-u>Unite<Space>rails/controller<Return>
-nnoremap <silent> [rails]v :<C-u>Unite<Space>rails/view<Return>
-nnoremap <silent> [rails]h :<C-u>Unite<Space>rails/helper<Return>
-
-" unite-outline
-nnoremap <silent> [unite]o :<C-u>Unite<Space>-vertical<Space>-no-quit<Space>-direction=botright<Space>-winwidth=35<Space>outline<Return>
 
 " CtrlP
 if get(g:, 'load_cpsm')
