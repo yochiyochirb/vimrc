@@ -145,7 +145,6 @@ Plug 'sunaku/vim-ruby-minitest'
 Plug 'haya14busa/vim-migemo'
 Plug 'mattn/calendar-vim'
 Plug 'mtsmfm/unite-turnip'
-Plug 'lambdalisue/vim-gista'
 
 if get(g:, 'load_wakatime')
   Plug 'wakatime/vim-wakatime'
