@@ -60,6 +60,7 @@ The following additional coloschemes are available:
 - [badwolf](https://github.com/sjl/badwolf)
 - [solarized](https://github.com/altercation/vim-colors-solarized)
 - [dracula](https://github.com/dracula/vim)
+- [papercolor](https://github.com/NLKNguyen/papercolor-theme)
 
 Add the theme you prefer in `~/.vimrc.local`, like:
 
@@ -68,6 +69,18 @@ colorscheme molokai
 ```
 
 See the website for each colorscheme for details.
+
+### vim-airline
+
+vim-airline provides nice looking status line. Visit https://github.com/vim-airline/vim-airline for details.
+
+Also, you can change vim-airline theme via vim-airline-themes by setting `let g:airline_theme='<theme name>'` in `~/.vimrc.local`, e.g.:
+
+```vim
+let g:airline_theme='simple'
+```
+
+You can find the full list ofg themes on https://github.com/vim-airline/vim-airline-themes
 
 ### Unite
 
@@ -137,7 +150,7 @@ For more information, visit https://github.com/Shougo/denite.nvim or `:help deni
 
 ### easymotion
 
-Easymotion brings you to the location you want really fast. 
+Easymotion brings you to the location you want really fast.
 
 The one thing at least you have to know about easymotion is:
 
