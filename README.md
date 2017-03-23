@@ -135,6 +135,22 @@ A few things at least you have to know about Denite are:
 
 For more information, visit https://github.com/Shougo/denite.nvim or `:help denite`.
 
+### denite-rails
+
+denite-rails is a denite source for rails.
+
+A few things at least you have to know about denite-rails are:
+
+- `<Leader>rr` : to "denite" dwim (Do What I Mean)
+  - This is maybe the most useful command which lists files related to the current buffer
+- `<Leader>rm` : to "denite" model files
+- `<Leader>rc` : to "denite" controller files
+- `<Leader>rv` : to "denite" view files
+- `<Leader>rh` : to "denite" helper files
+- `<Leader>rt` : to "denite" test files
+
+For more information, visit https://github.com/5t111111/denite-rails
+
 ### easymotion
 
 Easymotion brings you to the location you want really fast. 
