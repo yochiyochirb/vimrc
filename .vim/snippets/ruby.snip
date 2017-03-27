@@ -4,59 +4,70 @@ alias arrsum
 options word
   inject(:+)
 
-snippet # frozen
-abbr    # frozen_string_literal
-alias   frozen
+snippet frozen
 options head
   # frozen_string_literal: true
   ${0}
 
-snippet     feature
-abbr        feature
-options     head
-    feature '${1:description}' do
-      ${2}
-    end
+# RSpec
 
-snippet     context
-abbr        context
-options     head
-    context '${1:description}' do
-      ${2}
-    end
+snippet feature
+abbr feat
+options head
+  feature '${1:description}' do
+    ${2}
+  end
 
-snippet     it
-abbr        it
-options     head
-    it { ${0} }
+snippet describe
+abbr desc
+  describe '${1:description}' do
+    ${2}
+  end
 
-snippet     before
-abbr        before
-options     head
-    before do
-      ${0}
-    end
+snippet context
+abbr con
+options head
+  context '${1:description}' do
+    ${2}
+  end
 
-snippet     background
-abbr        background
-options     head
-    background do
-      ${0}
-    end
+snippet it
+options head
+  it { ${0} }
 
-snippet     let
-abbr        let
-options     head
-    let(:${1:variable}) { ${2} }
+snippet before
+abbr bef
+options head
+  before do
+    ${0}
+  end
 
-snippet     scenario
-abbr        scenario
-options     head
-    scenario '${1:description}' do
-      ${2}
-    end
+snippet after
+abbr aft
+options head
+  after do
+    ${0}
+  end
 
-snippet     expect
-abbr        expect
-options     word
-    expect(${1:actual}).to ${2:matcher}(${3:expected})
+snippet background
+abbr back
+options head
+  background do
+    ${0}
+  end
+
+snippet let
+options head
+  let(:${1:variable}) { ${2} }
+
+snippet scenario
+abbr sce
+options head
+  scenario '${1:description}' do
+    ${2}
+  end
+
+snippet expect
+abbr exp
+options word
+  expect(${1:actual}).to ${2:matcher}(${3:expected})
