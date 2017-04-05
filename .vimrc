@@ -139,6 +139,7 @@ Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] } | Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'dag/vim-fish', { 'for': 'fish' }
 Plug 'sunaku/vim-ruby-minitest'
 Plug 'haya14busa/vim-migemo'
 Plug 'mattn/calendar-vim'
