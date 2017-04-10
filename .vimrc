@@ -112,6 +112,7 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/unite-outline'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
@@ -176,6 +177,7 @@ Plug 'tomasr/molokai'
 Plug 'sjl/badwolf'
 Plug 'altercation/vim-colors-solarized'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'NLKNguyen/papercolor-theme'
 
 " Vim/Neovim specific plugins
 if has('nvim')
