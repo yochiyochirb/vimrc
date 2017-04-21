@@ -240,19 +240,6 @@ A few things at least you have to know about NERDTree are:
 
 For more information, visit https://github.com/scrooloose/nerdtree or `:help NERDTree`.
 
-### vimagit
-
-vimagit is a new way to use git within vim.
-
-A few things at least you have to know about vimagit are:
-
-- `<Leader>M` : to open vimagit
-- `N` : to go to next hunk
-- `S` : to add file/hunk to stage
-- `CC` : to commit staged file/hunk, `CC` again for committing after writing commit message
-
-For more information, visit https://github.com/jreybert/vimagit or `:help vimagit`.
-
 ### previm
 
 previm is a plugin for Realtime preview (Markdown only for the moment).
