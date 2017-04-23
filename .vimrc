@@ -369,10 +369,8 @@ endif
 
 " tsuquyomi
 let g:tsuquyomi_completion_detail = 1
-augroup tsuquyomi_specific
-  autocmd!
-  autocmd FileType typescript map <buffer> <C-\> <Plug>(TsuquyomiGoBack)
-augroup END
+let g:tsuquyomi_disable_quickfix = 1
+autocmd FileType typescript map <buffer> <C-\> <Plug>(TsuquyomiGoBack)
 
 " vim-go
 " See https://github.com/fatih/vim-go#example-mappings for mapping details
