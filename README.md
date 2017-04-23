@@ -70,6 +70,23 @@ colorscheme molokai
 
 See the website for each colorscheme for details.
 
+### Indentation
+
+Indent styles for major filetypes are defined in `.vim/after/ftplugin`. When you don't like them and want to change them, it's the recommended way to overwrite them in `.vimrc.local` instead of directly modify these files:
+
+e.g.)
+
+If you want to change HTML indent size from 2 spaces to 4 spaces, add the following to `.vimrc.local`:
+
+```vim
+augroup HTML
+  autocmd!
+  autocmd FileType html set tabstop=4
+  autocmd FileType html set shiftwidth=4
+  autocmd FileType html set softtabstop=4
+augroup END
+```
+
 ### vim-airline
 
 vim-airline provides nice looking status line. Visit https://github.com/vim-airline/vim-airline for details.
