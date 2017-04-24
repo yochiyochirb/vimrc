@@ -278,6 +278,9 @@ if get(g:, 'load_denite')
   nnoremap <silent> [rails]v :<C-u>Denite<Space>rails:view<Return>
   nnoremap <silent> [rails]h :<C-u>Denite<Space>rails:helper<Return>
   nnoremap <silent> [rails]t :<C-u>Denite<Space>rails:test<Return>
+
+  " unite-outline (to call it via denite)
+  nnoremap <silent> [unite]o :<C-u>Denite unite:outline<Return>
 endif
 
 " Neosnippet
