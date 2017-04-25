@@ -139,6 +139,8 @@ Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell', 'cabal'] }
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
 Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] } | Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'dag/vim-fish', { 'for': 'fish' }
@@ -367,6 +369,11 @@ else
   autocmd vimrc BufEnter,BufWritePost * Neomake
   let g:neomake_verbose = 0
 endif
+
+" tsuquyomi
+let g:tsuquyomi_completion_detail = 1
+let g:tsuquyomi_disable_quickfix = 1
+autocmd FileType typescript map <buffer> <C-\> <Plug>(TsuquyomiGoBack)
 
 " vim-go
 " See https://github.com/fatih/vim-go#example-mappings for mapping details
