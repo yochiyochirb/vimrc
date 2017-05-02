@@ -117,7 +117,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 Plug 'airblade/vim-gitgutter'
-Plug 'jreybert/vimagit'
 Plug 'godlygeek/tabular', { 'for': 'markdown' } | Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'kannokanno/previm', { 'for': 'markdown' }
 Plug 'tyru/open-browser.vim'
@@ -320,10 +319,6 @@ let g:EasyMotion_smartcase = 1
 " vim-easy-align
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
-
-" vimagit
-let g:magit_default_show_all_files = 2
-let g:magit_default_fold_level = 2
 
 " vim-markdown
 let g:vim_markdown_folding_disabled = 1
