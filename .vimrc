@@ -140,6 +140,7 @@ Plug 'rhysd/vim-crystal', { 'for': 'crystal' }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] } | Plug 'mxw/vim-jsx', { 'for': 'javascript.jsx' }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
+Plug 'Quramy/vim-js-pretty-template', { 'for': ['javascript', 'typescript'] }
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'dag/vim-fish', { 'for': 'fish' }
@@ -364,6 +365,13 @@ else
   autocmd vimrc BufEnter,BufWritePost * Neomake
   let g:neomake_verbose = 0
 endif
+
+" vim-js-pretty-template
+autocmd FileType javascript JsPreTmpl html
+autocmd FileType typescript JsPreTmpl html
+" For leafgarland/typescript-vim users only.
+" Please see https://github.com/Quramy/vim-js-pretty-template/issues/1 for details.
+autocmd FileType typescript syn clear foldBraces
 
 " tsuquyomi
 let g:tsuquyomi_completion_detail = 1
