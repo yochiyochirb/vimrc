@@ -368,9 +368,7 @@ endif
 
 " vim-js-pretty-template
 autocmd FileType javascript JsPreTmpl html
-autocmd FileType javascript JsPreTmpl css
 autocmd FileType typescript JsPreTmpl html
-autocmd FileType typescript JsPreTmpl css
 " For leafgarland/typescript-vim users only.
 " Please see https://github.com/Quramy/vim-js-pretty-template/issues/1 for details.
 autocmd FileType typescript syn clear foldBraces
