@@ -414,11 +414,11 @@ if executable('jq')
 elseif executable('python2')
   command! PrettyJson :execute '%!python2 -c "import sys, json;
     \ print json.dumps(json.loads(sys.stdin.read()), indent=2,
-    \ separators=(\",\", \": \"), ensure_ascii=False)"'
+    \ separators=(\",\", \": \"), ensure_ascii=False).encode(\"utf8\")"'
 else
   command! PrettyJson :execute '%!python -c "import sys, json;
     \ print json.dumps(json.loads(sys.stdin.read()), indent=2,
-    \ separators=(\",\", \": \"), ensure_ascii=False)"'
+    \ separators=(\",\", \": \"), ensure_ascii=False).encode(\"utf8\")"'
 endif
 
 " }}}
