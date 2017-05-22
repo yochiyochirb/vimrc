@@ -87,6 +87,11 @@ augroup HTML
 augroup END
 ```
 
+### Prettify JSON
+
+You can prettify a JSON buffer by invoking `:PrettyJson`.
+It uses `jq` by default and fallbacks to use Python 2.x if `jq` is not available.
+
 ### vim-airline
 
 vim-airline provides nice looking status line. Visit https://github.com/vim-airline/vim-airline for details.

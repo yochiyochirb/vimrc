@@ -404,6 +404,25 @@ let g:vimwiki_use_calendar = 1
 
 " }}}
 
+" Extra Commands
+" ------------------------------------------------
+" {{{1
+
+" Prettify JSON
+if executable('jq')
+  command! PrettyJson :execute "%!jq '.'"
+elseif executable('python2')
+  command! PrettyJson :execute '%!python2 -c "import sys, json;
+    \ print json.dumps(json.loads(sys.stdin.read()), indent=2,
+    \ separators=(\",\", \": \"), ensure_ascii=False).encode(\"utf8\")"'
+else
+  command! PrettyJson :execute '%!python -c "import sys, json;
+    \ print json.dumps(json.loads(sys.stdin.read()), indent=2,
+    \ separators=(\",\", \": \"), ensure_ascii=False).encode(\"utf8\")"'
+endif
+
+" }}}
+
 " Load Your Local .vimrc
 " ------------------------------------------------
 " {{{1
