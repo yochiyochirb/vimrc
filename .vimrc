@@ -307,7 +307,7 @@ if get(g:, 'load_cpsm')
 
   " Denite.vim integration
   if get(g:, 'load_denite')
-    call denite#custom#source('file_rec', 'matcher', ['matcher_cpsm'])
+    call denite#custom#source('file_rec', 'matchers', ['matcher_cpsm'])
   endif
 endif
 
