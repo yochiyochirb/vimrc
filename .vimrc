@@ -66,6 +66,12 @@ set undodir=~/.vim/tmp
 " Enable matchit
 runtime macros/matchit.vim
 
+" Enable persistent undo only when the feature is implemented
+if has('persistent_undo')
+  set undodir=~/.vim/undo
+  set undofile
+endif
+
 " }}}
 
 " General Key Bindings
