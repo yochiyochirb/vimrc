@@ -60,6 +60,7 @@ if !isdirectory(expand('~/.vim/tmp'))
 endif
 
 set directory=~/.vim/tmp
+set backup
 set backupdir=~/.vim/tmp
 set undodir=~/.vim/tmp
 
