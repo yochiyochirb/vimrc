@@ -157,10 +157,6 @@ Plug 'mattn/calendar-vim'
 Plug 'mtsmfm/unite-turnip'
 Plug 'splattael/rufo-vim', { 'for': 'ruby' }
 
-if executable('rufo')
-  Plug 'splattael/rufo-vim', { 'for': 'ruby' }
-end
-
 if get(g:, 'load_wakatime')
   Plug 'wakatime/vim-wakatime'
 endif
