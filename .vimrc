@@ -155,6 +155,11 @@ Plug 'sunaku/vim-ruby-minitest'
 Plug 'haya14busa/vim-migemo'
 Plug 'mattn/calendar-vim'
 Plug 'mtsmfm/unite-turnip'
+Plug 'splattael/rufo-vim', { 'for': 'ruby' }
+
+if executable('rufo')
+  Plug 'splattael/rufo-vim', { 'for': 'ruby' }
+end
 
 if get(g:, 'load_wakatime')
   Plug 'wakatime/vim-wakatime'
@@ -408,6 +413,11 @@ let g:vimwiki_list = [{
 \}]
 let g:vimwiki_global_ext = 0
 let g:vimwiki_use_calendar = 1
+
+" rufo_vim
+if executable('rufo')
+  let g:rufo_auto_formatting = 1
+endif
 
 " }}}
 

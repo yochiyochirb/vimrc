@@ -454,3 +454,13 @@ There is no need to leave vim for viewing calendar.
 - `<Leader>caL`: Horizontally-split calendar
 
 For more information, visit https://github.com/mattn/calendar-vim or `:help calendar`.
+
+### rufo-vim
+
+Auto Ruby fomatter for vim via [rufo](https://github.com/asterite/rufo#usage). Enable if you execute `gem install rufo` .
+
+- `:Rufo`: Run formatting
+- `:RufoOn`: Enable auto formatting
+- `:RufoOff`: Disable auto formatting
+
+For more information, visit https://github.com/splattael/rufo-vim .
