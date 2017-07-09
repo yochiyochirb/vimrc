@@ -457,7 +457,11 @@ For more information, visit https://github.com/mattn/calendar-vim or `:help cale
 
 ### rufo-vim
 
-Auto Ruby formatter for vim via [rufo](https://github.com/asterite/rufo#usage). Enable if you execute `gem install rufo` .
+Auto Ruby formatter for vim via [rufo](https://github.com/asterite/rufo). If you want to enable auto formatting by default, install `rufo` gem and add the below line to your ~/.vimrc.local :
+
+```vim
+let g:rufo_auto_formatting = 1
+```
 
 - `:Rufo`: Run formatting
 - `:RufoOn`: Enable auto formatting

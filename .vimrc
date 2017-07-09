@@ -410,11 +410,6 @@ let g:vimwiki_list = [{
 let g:vimwiki_global_ext = 0
 let g:vimwiki_use_calendar = 1
 
-" rufo_vim
-if get(g:, 'load_rufo')
-  let g:rufo_auto_formatting = 1
-endif
-
 " }}}
 
 " Extra Commands
