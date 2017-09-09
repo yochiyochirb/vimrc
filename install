@@ -7,10 +7,6 @@ popd > /dev/null
 pushd $HOME > /dev/null
 
 backup_existing_file() {
-  if [ ! -e $1 ] ; then
-    return 0
-  fi
-
   if [ ! -e "$1.bak" ] ; then
     mv $1 $1.bak
     echo "A backup [$1.bak] is created."
@@ -28,15 +24,56 @@ backup_existing_file() {
   return 0
 }
 
-backup_existing_file $HOME/.vimrc
-backup_existing_file $HOME/.vim
+symlink_existence_message() {
+  echo
+  echo "A symbolic link [$1] (points to $(readlink "$1")) already exists."
+}
 
-ln -s $SCRIPT_PATH/.vim $HOME/.vim
-echo "A symbolic link [$HOME/.vim] is created."
-ln -s $SCRIPT_PATH/.vimrc $HOME/.vimrc
-echo "A symbolic link [$HOME/.vimrc] is created."
-cp $SCRIPT_PATH/.vimrc.preset.sample $HOME/.vimrc.preset
-echo "A preset file [$HOME/.vimrc.preset] is copied."
+symlink_overwrite_confirmation() {
+  read -p "Are you really sure you want to overwrite it? (Y/n): " -n 1 -r
+  echo
+  if [[ $REPLY =~ ^[Yy]$ ]] ; then
+    rm "$1"
+  else
+    echo
+    echo "Setup is aborted."
+    exit 1
+  fi
+}
+
+link_items=(.vim .vimrc)
+
+for item in "${link_items[@]}"; do
+  if [ "$(readlink "$HOME/$item")" ]; then
+    symlink_existence_message "$HOME/$item"
+    symlink_overwrite_confirmation "$HOME/$item"
+  fi
+
+  if [ -e "$HOME/$item" ] ; then
+    backup_existing_file "$HOME/$item"
+  fi
+
+  ln -s "$SCRIPT_PATH/$item" "$HOME/$item"
+  echo "A symbolic link [$HOME/$item] is created."
+done
+
+if [ -e "$HOME/.vimrc.preset" ] ; then
+  echo
+
+  if cmp -s "$SCRIPT_PATH/.vimrc.preset.sample" "$HOME/.vimrc.preset" ; then
+    echo "A user's local preset file [$HOME/.vimrc.preset] has not been modified from the default."
+  else
+    echo "A user's local preset file [$HOME/.vimrc.preset] has been modified."
+    echo "Please review the differences between two files by the following command and manually apply updates:"
+    echo "diff $SCRIPT_PATH/.vimrc.preset.sample $HOME/.vimrc.preset"
+    echo
+    echo "Setup is aborted."
+    exit 1
+  fi
+else
+  cp "$SCRIPT_PATH/.vimrc.preset.sample" "$HOME/.vimrc.preset"
+  echo "A preset file [$HOME/.vimrc.preset] is copied."
+fi
 
 if hash nvim 2>/dev/null; then
   XDG_CONFIG_HOME=${XDG_CONFIG_HOME:=$HOME/.config}
@@ -46,15 +83,28 @@ if hash nvim 2>/dev/null; then
     echo "[$XDG_CONFIG_HOME] is created."
   fi
 
-  backup_existing_file $XDG_CONFIG_HOME/nvim/init.vim
-  backup_existing_file $XDG_CONFIG_HOME/nvim
+  if [ "$(readlink "$XDG_CONFIG_HOME/nvim")" ]; then
+    symlink_existence_message "$XDG_CONFIG_HOME/nvim"
+    symlink_overwrite_confirmation "$XDG_CONFIG_HOME/nvim"
+  fi
 
-  ln -s $SCRIPT_PATH/.vim $XDG_CONFIG_HOME/nvim
+  if [ -e "$XDG_CONFIG_HOME/nvim" ] ; then
+    backup_existing_file "$XDG_CONFIG_HOME/nvim"
+  fi
+
+  ln -s "$SCRIPT_PATH/.vim" "$XDG_CONFIG_HOME/nvim"
   echo "A symbolic link [$XDG_CONFIG_HOME/nvim] is created."
 
-  backup_existing_file $XDG_CONFIG_HOME/nvim/init.vim
+  if [ "$(readlink "$XDG_CONFIG_HOME/nvim/init.vim")" ]; then
+    symlink_existence_message "$XDG_CONFIG_HOME/nvim/init.vim"
+    symlink_overwrite_confirmation "$XDG_CONFIG_HOME/nvim/init.vim"
+  fi
 
-  ln -s $SCRIPT_PATH/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+  if [ -e "$XDG_CONFIG_HOME/nvim/init.vim" ] ; then
+    backup_existing_file "$XDG_CONFIG_HOME/nvim/init.vim"
+  fi
+
+  ln -s "$SCRIPT_PATH/.vimrc" "$XDG_CONFIG_HOME/nvim/init.vim"
   echo "A symbolic link [$XDG_CONFIG_HOME/nvim/init.vim] is created."
 fi
 
