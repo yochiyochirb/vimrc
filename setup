@@ -1,5 +1,11 @@
 #!/usr/bin/env bash -eu
 
+COLOR_OFF='\033[0m'
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+YELLOW='\033[0;33m'
+CYAN='\033[0;36m'
+
 pushd `dirname $0` > /dev/null
 SCRIPT_PATH=`pwd`
 popd > /dev/null
@@ -9,7 +15,7 @@ pushd $HOME > /dev/null
 backup_existing_file() {
   if [ ! -e "$1.bak" ] ; then
     mv $1 $1.bak
-    echo "A backup [$1.bak] is created."
+    echo -e "${CYAN}A backup [$1.bak] is created.${COLOR_OFF}"
     return 0
   fi
 
@@ -20,13 +26,13 @@ backup_existing_file() {
   done
 
   mv $1 $1.bak.$i
-  echo "A backup [$1.bak.$i] is created."
+  echo -e "${CYAN}A backup [$1.bak.$i] is created.${COLOR_OFF}"
   return 0
 }
 
 symlink_existence_message() {
   echo
-  echo "A symbolic link [$1] (points to $(readlink "$1")) already exists."
+  echo -e "${YELLOW}A symbolic link [$1] (points to $(readlink "$1")) already exists.${COLOR_OFF}"
 }
 
 symlink_overwrite_confirmation() {
@@ -36,7 +42,7 @@ symlink_overwrite_confirmation() {
     rm "$1"
   else
     echo
-    echo "Setup is aborted."
+    echo -e "${RED}Setup is aborted.${COLOR_OFF}"
     exit 1
   fi
 }
@@ -54,25 +60,25 @@ for item in "${link_items[@]}"; do
   fi
 
   ln -s "$SCRIPT_PATH/$item" "$HOME/$item"
-  echo "A symbolic link [$HOME/$item] is created."
+  echo -e "${GREEN}A symbolic link [$HOME/$item] is created.${COLOR_OFF}"
 done
 
 if [ -e "$HOME/.vimrc.preset" ] ; then
   echo
 
   if cmp -s "$SCRIPT_PATH/.vimrc.preset.sample" "$HOME/.vimrc.preset" ; then
-    echo "A user's local preset file [$HOME/.vimrc.preset] has not been modified from the default."
+    echo -e "${CYAN}A user's local preset file [$HOME/.vimrc.preset] has not been modified from the default.${COLOR_OFF}"
   else
-    echo "A user's local preset file [$HOME/.vimrc.preset] has been modified."
-    echo "Please review the differences between two files by the following command and manually apply updates:"
+    echo -e "${YELLOW}A user's local preset file [$HOME/.vimrc.preset] has been modified.${COLOR_OFF}"
+    echo -e "Please review the differences between two files by the following command and manually apply updates:${COLOR_OFF}"
     echo "diff $SCRIPT_PATH/.vimrc.preset.sample $HOME/.vimrc.preset"
     echo
-    echo "Setup is aborted."
+    echo -e "${RED}Setup is aborted.${COLOR_OFF}"
     exit 1
   fi
 else
   cp "$SCRIPT_PATH/.vimrc.preset.sample" "$HOME/.vimrc.preset"
-  echo "A preset file [$HOME/.vimrc.preset] is copied."
+  echo -e "${GREEN}A preset file [$HOME/.vimrc.preset] is copied.${COLOR_OFF}"
 fi
 
 if hash nvim 2>/dev/null; then
@@ -80,7 +86,7 @@ if hash nvim 2>/dev/null; then
 
   if [ ! -d "$XDG_CONFIG_HOME" ] ; then
     mkdir -p $XDG_CONFIG_HOME
-    echo "[$XDG_CONFIG_HOME] is created."
+    echo -e "${GREEN}[$XDG_CONFIG_HOME] is created.${COLOR_OFF}"
   fi
 
   if [ "$(readlink "$XDG_CONFIG_HOME/nvim")" ]; then
@@ -93,7 +99,7 @@ if hash nvim 2>/dev/null; then
   fi
 
   ln -s "$SCRIPT_PATH/.vim" "$XDG_CONFIG_HOME/nvim"
-  echo "A symbolic link [$XDG_CONFIG_HOME/nvim] is created."
+  echo -e "${GREEN}A symbolic link [$XDG_CONFIG_HOME/nvim] is created.${COLOR_OFF}"
 
   if [ "$(readlink "$XDG_CONFIG_HOME/nvim/init.vim")" ]; then
     symlink_existence_message "$XDG_CONFIG_HOME/nvim/init.vim"
@@ -105,7 +111,7 @@ if hash nvim 2>/dev/null; then
   fi
 
   ln -s "$SCRIPT_PATH/.vimrc" "$XDG_CONFIG_HOME/nvim/init.vim"
-  echo "A symbolic link [$XDG_CONFIG_HOME/nvim/init.vim] is created."
+  echo -e "${GREEN}A symbolic link [$XDG_CONFIG_HOME/nvim/init.vim] is created.${COLOR_OFF}"
 fi
 
 popd > /dev/null
