@@ -14,11 +14,11 @@ Clone this repository in anywhere you like:
 $ git clone https://github.com/yochiyochirb/vimrc.git
 ```
 
-Just run the installation script:
+Just run the setup script:
 
 ```
 $ cd /path/to/vimrc # <= cd to where you clone the repository
-$ ./install # <= Run the installation script
+$ ./setup # <= Run the setup script
 ```
 
 ## Install Plugins
@@ -40,6 +40,14 @@ Setup plugins.
 
 ```
 :PlugInstall
+```
+
+## Update
+
+Just run the setup script again and follow the instructions:
+
+```
+$ ./setup
 ```
 
 ## Quickstart Guides
