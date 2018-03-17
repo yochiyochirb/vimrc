@@ -99,6 +99,7 @@ augroup END
 
 You can prettify a JSON buffer by invoking `:PrettyJson`.
 It uses `jq` by default and fallbacks to use Python 2.x if `jq` is not available.
+You can also prettify a part of a buffer as a JSON by specifying range. Like this `:'<,'>PrettyJson`.
 
 ### vim-airline
 
