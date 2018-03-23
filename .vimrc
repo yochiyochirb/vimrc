@@ -156,7 +156,7 @@ Plug 'haya14busa/vim-migemo'
 Plug 'mattn/calendar-vim'
 Plug 'mtsmfm/unite-turnip'
 Plug 'ruby-formatter/rufo-vim', { 'for': 'ruby' }
-Plug 'posva/vim-vue'
+Plug 'posva/vim-vue', { 'for': 'vue' }
 
 if get(g:, 'load_wakatime')
   Plug 'wakatime/vim-wakatime'
