@@ -100,6 +100,16 @@ nnoremap <Down> :echoe<Space>"Use j"<Return>
 " Deleting a buffer without closing the window
 nnoremap <silent> <leader>bd :bprevious\|:bdelete<Space>#<Return>
 
+" Open repl
+if has("terminal")
+  nnoremap <Leader>irb :<C-u>terminal irb<Return>
+  nnoremap <Leader>py :<C-u>terminal python<Return>
+  nnoremap <Leader>node :<C-u>terminal node<Return>
+  if executable('gosh')
+    nnoremap <Leader>gosh :<C-u>terminal gosh<Return>
+  end
+endif
+
 " }}}
 
 " Plugins
