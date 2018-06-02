@@ -167,6 +167,7 @@ Plug 'mattn/calendar-vim'
 Plug 'mtsmfm/unite-turnip'
 Plug 'ruby-formatter/rufo-vim', { 'for': 'ruby' }
 Plug 'posva/vim-vue', { 'for': 'vue' }
+Plug 'w0rp/ale'
 
 if get(g:, 'load_wakatime')
   Plug 'wakatime/vim-wakatime'
@@ -187,12 +188,6 @@ if get(g:, 'load_denite')
   endif
 else
   Plug 'basyura/unite-rails'
-endif
-
-if get(g:, 'load_syntastic')
-  Plug 'scrooloose/syntastic'
-else
-  Plug 'neomake/neomake'
 endif
 
 " Colorschemes
@@ -370,19 +365,6 @@ else
     " neocomplete.vim
     let g:neocomplete#enable_at_startup = 1
   endif
-endif
-
-if get(g:, 'load_syntastic')
-  " Syntastic
-  let g:syntastic_check_on_open = 1
-  let g:syntastic_check_on_wq = 0
-  let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby', 'python'] }
-  let g:syntastic_ruby_checkers = ['rubocop', 'mri']
-  let g:syntastic_python_checkers = ['flake8']
-else
-  " neomake
-  autocmd vimrc BufEnter,BufWritePost * Neomake
-  let g:neomake_verbose = 0
 endif
 
 " vim-js-pretty-template
