@@ -100,6 +100,12 @@ nnoremap <Down> :echoe<Space>"Use j"<Return>
 " Deleting a buffer without closing the window
 nnoremap <silent> <leader>bd :bprevious\|:bdelete<Space>#<Return>
 
+" <ESC> when typing 'jj' quick
+inoremap jj <Esc>
+
+" Select from the cursor to the end of line by typing 'vv' quick.
+vnoremap v $
+
 " Open repl
 if has("terminal")
   nnoremap <Leader>irb :<C-u>terminal irb<Return>
