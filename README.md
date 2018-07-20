@@ -279,7 +279,7 @@ The one thing at least you have to know about previm is:
 
 - `<Leader>mp` : to preview markdown in a web browser
 
-For more information, visit https://github.com/kannokanno/previm or `:help previm`.
+For more information, visit https://github.com/previm/previm or `:help previm`.
 
 ### open-browser-github
 
