@@ -125,9 +125,19 @@ endif
 " Requires plug.vim installed in the autoload directory.
 " See https://github.com/junegunn/vim-plug for details.
 
+
+function! DoUpdateRemotePlugins(arg)
+  if has('nvim')
+    UpdateRemotePlugins
+  end
+endfunction
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Shougo/denite.nvim', { 'do': function('DoUpdateRemotePlugins') }
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoUpdateRemotePlugins') }
+Plug '5t111111/denite-rails'
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neosnippet'
@@ -187,15 +197,6 @@ if get(g:, 'load_vimwiki')
   Plug 'vimwiki/vimwiki'
 endif
 
-if get(g:, 'load_denite')
-  if !has('nvim')
-    Plug 'Shougo/denite.nvim'
-    Plug '5t111111/denite-rails'
-  endif
-else
-  Plug 'basyura/unite-rails'
-endif
-
 " Colorschemes
 Plug 'tomasr/molokai'
 Plug 'sjl/badwolf'
@@ -203,22 +204,10 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'NLKNguyen/papercolor-theme'
 
-" Vim/Neovim specific plugins
-if has('nvim')
-  function! DoRemote(arg)
-    UpdateRemotePlugins
-  endfunction
-
-  Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-
-  if get(g:, 'load_denite')
-    Plug 'Shougo/denite.nvim', { 'do': function('DoRemote') }
-    Plug '5t111111/denite-rails'
-  endif
-else
-  if has('lua')
-    Plug 'Shougo/neocomplete.vim'
-  endif
+" nvim-yarp and vim-hug-neovim-rpc are required for deoplete.nvim in Vim8.
+if !has('nvim')
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
 call plug#end()
@@ -232,79 +221,45 @@ call plug#end()
 " Unite.vim
 nnoremap [unite] <Nop>
 nmap     <Leader>u [unite]
-nnoremap <silent> [unite]f :<C-u>Unite<Space>file<Return>
-nnoremap <silent> [unite]n :<C-u>Unite<Space>file/new<Return>
-nnoremap <silent> [unite]r :<C-u>Unite<Space>file_mru<Return>
-nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<Return>
-nnoremap <silent> [unite]fp :<C-u>call<Space><SID>unite_do_in_project('file_rec/async:')<Return>
-nnoremap <silent> [unite]gp :<C-u>call<Space><SID>unite_do_in_project('grep:')<Return>
 
 let g:unite_enable_start_insert = 1
 
-" unite do from project's root directory
-function! s:unite_do_in_project(source)
-  let l:project_root = unite#util#path2project_directory(expand('%'))
-  execute 'Unite ' . a:source . l:project_root
-endfunction
+" Denite.vim
+nnoremap <silent> [unite]r :<C-u>Denite<Space>file_mru<Return>
+nnoremap <silent> [unite]b :<C-u>Denite<Space>buffer<Return>
+nnoremap <silent> [unite]fp :<C-u>Denite<Space>file_rec<Return>
+nnoremap <silent> [unite]gp :<C-u>Denite<Space>grep<Return>
+nnoremap <silent> [unite]l :<C-u>Denite<Space>line<Return>
+nnoremap <silent> [unite]u :<C-u>Denite<Space>-resume<Return>
+
+call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
+call denite#custom#map('insert', '<C-x>', '<denite:input_command_line>', 'noremap')
 
 " Use 'ag' instead of 'grep' if available
 if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-  let g:unite_source_grep_recursive_opt = ''
+  call denite#custom#var('grep', 'command', ['ag'])
+  call denite#custom#var('grep', 'default_opts',
+                  \ ['-i', '--vimgrep'])
+  call denite#custom#var('grep', 'recursive_opts', [])
+  call denite#custom#var('grep', 'pattern_opt', [])
+  call denite#custom#var('grep', 'separator', ['--'])
+  call denite#custom#var('grep', 'final_opts', [])
 endif
 
-" unite-rails
+" denite-rails
 nnoremap [rails] <Nop>
 nmap     <Leader>r [rails]
-nnoremap [rails]r :Unite<Space>rails/
-nnoremap <silent> [rails]m :<C-u>Unite<Space>rails/model<Return>
-nnoremap <silent> [rails]c :<C-u>Unite<Space>rails/controller<Return>
-nnoremap <silent> [rails]v :<C-u>Unite<Space>rails/view<Return>
-nnoremap <silent> [rails]h :<C-u>Unite<Space>rails/helper<Return>
+nnoremap [rails]r :Denite<Space>rails:
+nnoremap <silent> [rails]r :<C-u>Denite<Space>rails:dwim<Return>
+nnoremap <silent> [rails]m :<C-u>Denite<Space>rails:model<Return>
+nnoremap <silent> [rails]c :<C-u>Denite<Space>rails:controller<Return>
+nnoremap <silent> [rails]v :<C-u>Denite<Space>rails:view<Return>
+nnoremap <silent> [rails]h :<C-u>Denite<Space>rails:helper<Return>
+nnoremap <silent> [rails]t :<C-u>Denite<Space>rails:test<Return>
 
-" unite-outline
-nnoremap <silent> [unite]o :<C-u>Unite<Space>-vertical<Space>-no-quit<Space>-direction=botright<Space>-winwidth=35<Space>outline<Return>
-
-" Denite.vim
-if get(g:, 'load_denite')
-  nnoremap <silent> [unite]r :<C-u>Denite<Space>file_mru<Return>
-  nnoremap <silent> [unite]b :<C-u>Denite<Space>buffer<Return>
-  nnoremap <silent> [unite]fp :<C-u>Denite<Space>file_rec<Return>
-  nnoremap <silent> [unite]gp :<C-u>Denite<Space>grep<Return>
-  nnoremap <silent> [unite]l :<C-u>Denite<Space>line<Return>
-  nnoremap <silent> [unite]u :<C-u>Denite<Space>-resume<Return>
-
-  call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
-  call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
-  call denite#custom#map('insert', '<C-x>', '<denite:input_command_line>', 'noremap')
-
-  " Use 'ag' instead of 'grep' if available
-  if executable('ag')
-    call denite#custom#var('grep', 'command', ['ag'])
-    call denite#custom#var('grep', 'default_opts',
-                    \ ['-i', '--vimgrep'])
-    call denite#custom#var('grep', 'recursive_opts', [])
-    call denite#custom#var('grep', 'pattern_opt', [])
-    call denite#custom#var('grep', 'separator', ['--'])
-    call denite#custom#var('grep', 'final_opts', [])
-  endif
-
-  " denite-rails
-  nnoremap [rails] <Nop>
-  nmap     <Leader>r [rails]
-  nnoremap [rails]r :Denite<Space>rails:
-  nnoremap <silent> [rails]r :<C-u>Denite<Space>rails:dwim<Return>
-  nnoremap <silent> [rails]m :<C-u>Denite<Space>rails:model<Return>
-  nnoremap <silent> [rails]c :<C-u>Denite<Space>rails:controller<Return>
-  nnoremap <silent> [rails]v :<C-u>Denite<Space>rails:view<Return>
-  nnoremap <silent> [rails]h :<C-u>Denite<Space>rails:helper<Return>
-  nnoremap <silent> [rails]t :<C-u>Denite<Space>rails:test<Return>
-
-  " unite-outline (to call it via denite)
-  nnoremap <silent> [unite]o :<C-u>Denite unite:outline<Return>
-endif
-
+" unite-outline (to call it via denite)
+nnoremap <silent> [unite]o :<C-u>Denite unite:outline<Return>
 " Neosnippet
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -318,11 +273,7 @@ nnoremap <silent> <Leader>nt :<C-u>NERDTreeToggle<Return>
 " CtrlP
 if get(g:, 'load_cpsm')
   let g:ctrlp_match_func = { 'match': 'cpsm#CtrlPMatch' }
-
-  " Denite.vim integration
-  if get(g:, 'load_denite')
-    call denite#custom#source('file_rec', 'matchers', ['matcher_cpsm'])
-  endif
+  call denite#custom#source('file_rec', 'matchers', ['matcher_cpsm'])
 endif
 
 let g:ctrlp_user_command = {
@@ -362,16 +313,8 @@ xnoremap <silent> <Leader>s :<C-u>'<,'>OverCommandLine<Return>
 " vim-migemo
 nmap <silent> g/ <Plug>(migemo-migemosearch)
 
-" Vim/Neovim specific plugin settings
-if has('nvim')
-  " deoplete.nvim
-  let g:deoplete#enable_at_startup = 1
-else
-  if has('lua')
-    " neocomplete.vim
-    let g:neocomplete#enable_at_startup = 1
-  endif
-endif
+" deoplete.nvim
+let g:deoplete#enable_at_startup = 1
 
 " vim-js-pretty-template
 autocmd FileType javascript JsPreTmpl html

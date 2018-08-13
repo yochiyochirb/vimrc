@@ -6,6 +6,24 @@ This is a Ruby/Rails-community-driven vimrc and aimed to help you to experience 
 - Adorable key-bindings
 - Providing Plugin set and basic ways to use them
 
+## Prerequisites
+
+This vimrc works only on Neovim/Vim8.0+ built with Python 3 interface (`if_python3`).
+
+If you are using macOS and want to intall Vim with `if_python3`, it is super easy using Homebrew:
+
+```
+$ brew install vim --with-python3
+```
+
+You can check if Vim is built with `if_python3` by `:echo has("python3")`. If it returns 1, then you're OK.
+
+Also, since some plugins (e.g. deoplete.nvim) require Neovim Python client, you might have to install it:
+
+```
+$ pip3 install neovim
+```
+
 ## Installation
 
 Clone this repository in anywhere you like:
@@ -117,28 +135,7 @@ You can find the full list ofg themes on https://github.com/vim-airline/vim-airl
 
 The unite is a plugin which can search and display information from arbitrary sources like files, buffers or recently used files.
 
-A few things at least you have to know about Unite are:
-
-- `<Leader>ur` : to "unite" recently opened files
-- `<Leader>ub` : to "unite" buffers
-- `<Leader>ufp` : to "unite" find files in the project (e.g. for files in git repository)
-- `<Leader>ugp` : to "unite" grep files in the project (e.g. from files in git repository)
-  - ag will be used as grep source if available
-
-For more information, visit https://github.com/Shougo/unite.vim or `:help unite`.
-
-### unite-rails
-
-unite-rails is a unite plugin for rails.
-
-A few things at least you have to know about unite-rails are:
-
-- `<Leader>rm` : to "unite" models
-- `<Leader>rc` : to "unite" controllers
-- `<Leader>rv` : to "unite" views
-- `<Leader>rh` : to "unite" helpers
-
-For more information, visit https://github.com/basyura/unite-rails or `:help unite-rails`.
+However, Unite will be replaced with Denite in near future because the plugin author of Unite states that active development of Unite has stopped, so there exists Unite only for backward compatibility.
 
 ### unite-outline
 
@@ -158,12 +155,7 @@ For more information, visit https://github.com/mtsmfm/unite-turnip .
 
 ### Denite.nvim
 
-Denite.nvim is to unite all interfaces for NeoVim/Vim. Maybe Unite will be replaced with Denite in near future
-because the plugin author of Unite states that active development of Unite has stopped.
-
-However, for the moment Denite.vim is an optional choice as it does not have enough sources (like unite-rails)
-and maybe still has many breaking changes, so you have to explicitly configure your `~/.vimrc.preset` by
-uncommenting `let g:load_denite = 1`.
+Denite.nvim is to unite all interfaces for NeoVim/Vim.
 
 A few things at least you have to know about Denite are:
 
