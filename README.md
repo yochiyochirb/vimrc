@@ -160,8 +160,10 @@ Denite.nvim is to unite all interfaces for NeoVim/Vim.
 A few things at least you have to know about Denite are:
 
 - It requires Neovim or Vim 8.0+ with if_python3
-- `<C-j>` : to move to next line
-- `<C-k>` : to move to previous line
+- `j` : to move to next line
+- `k` : to move to previous line
+- `q` : to close "denite" window
+- `i` : to move to filter buffer
 - `<Leader>ur` : to "denite" recently opened files
 - `<Leader>ub` : to "denite" buffers
 - `<Leader>ufp` : to "denite" find files in the project (e.g. for files in git repository)
